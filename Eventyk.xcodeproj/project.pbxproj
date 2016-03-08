@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0ADADA1C8F4A62004D8901 /* Provider.swift */; };
+		0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADADC1C8F52B7004D8901 /* lgo-eventy1.png */; };
+		0C0ADAE11C8F5441004D8901 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE01C8F5441004D8901 /* logo.png */; };
+		0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */; };
 		0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */; };
 		0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1E1C8F483800B9D934 /* ViewController.swift */; };
 		0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6C3C201C8F483800B9D934 /* Main.storyboard */; };
@@ -14,6 +18,7 @@
 		0C6C3C271C8F483800B9D934 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6C3C251C8F483800B9D934 /* LaunchScreen.storyboard */; };
 		0C6C3C321C8F483800B9D934 /* EventykTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C311C8F483800B9D934 /* EventykTests.swift */; };
 		0C6C3C3D1C8F483800B9D934 /* EventykUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C3C1C8F483800B9D934 /* EventykUITests.swift */; };
+		D8E396C0C0D2041940623F6B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832E42A3DDDB4E1B79D2A09C /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0ADADA1C8F4A62004D8901 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		0C0ADADC1C8F52B7004D8901 /* lgo-eventy1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lgo-eventy1.png"; path = "Assets.xcassets/lgo-eventy1.png"; sourceTree = "<group>"; };
+		0C0ADAE01C8F5441004D8901 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Assets.xcassets/logo.png; sourceTree = "<group>"; };
+		0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsz_facebook.png; path = Assets.xcassets/rsz_facebook.png; sourceTree = "<group>"; };
 		0C6C3C191C8F483800B9D934 /* Eventyk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventyk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6C3C1E1C8F483800B9D934 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +56,9 @@
 		0C6C3C381C8F483800B9D934 /* EventykUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EventykUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6C3C3C1C8F483800B9D934 /* EventykUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventykUITests.swift; sourceTree = "<group>"; };
 		0C6C3C3E1C8F483800B9D934 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832E42A3DDDB4E1B79D2A09C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2B14F0923A7F473D152EF3C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F05FFE1E653A135E434E0797 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E396C0C0D2041940623F6B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +94,8 @@
 				0C6C3C301C8F483800B9D934 /* EventykTests */,
 				0C6C3C3B1C8F483800B9D934 /* EventykUITests */,
 				0C6C3C1A1C8F483800B9D934 /* Products */,
+				BEF17ED567A6C683F492283D /* Pods */,
+				2485D761FA36FAEB893A1969 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,10 +114,14 @@
 			children = (
 				0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */,
 				0C6C3C1E1C8F483800B9D934 /* ViewController.swift */,
+				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0C6C3C201C8F483800B9D934 /* Main.storyboard */,
 				0C6C3C231C8F483800B9D934 /* Assets.xcassets */,
 				0C6C3C251C8F483800B9D934 /* LaunchScreen.storyboard */,
 				0C6C3C281C8F483800B9D934 /* Info.plist */,
+				0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */,
+				0C0ADAE01C8F5441004D8901 /* logo.png */,
+				0C0ADADC1C8F52B7004D8901 /* lgo-eventy1.png */,
 			);
 			path = Eventyk;
 			sourceTree = "<group>";
@@ -125,6 +144,23 @@
 			path = EventykUITests;
 			sourceTree = "<group>";
 		};
+		2485D761FA36FAEB893A1969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				832E42A3DDDB4E1B79D2A09C /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEF17ED567A6C683F492283D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F05FFE1E653A135E434E0797 /* Pods.debug.xcconfig */,
+				A2B14F0923A7F473D152EF3C /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +168,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C6C3C411C8F483800B9D934 /* Build configuration list for PBXNativeTarget "Eventyk" */;
 			buildPhases = (
+				C29BC04838DA7A92197F6C09 /* Check Pods Manifest.lock */,
 				0C6C3C151C8F483800B9D934 /* Sources */,
 				0C6C3C161C8F483800B9D934 /* Frameworks */,
 				0C6C3C171C8F483800B9D934 /* Resources */,
+				241D89BD936057E8D9E38A1D /* Embed Pods Frameworks */,
+				B852287601941F55B2E76158 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,6 +226,7 @@
 		0C6C3C111C8F483800B9D934 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = EV;
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Innovarco;
@@ -230,6 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6C3C271C8F483800B9D934 /* LaunchScreen.storyboard in Resources */,
+				0C0ADAE11C8F5441004D8901 /* logo.png in Resources */,
+				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
+				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
 				0C6C3C241C8F483800B9D934 /* Assets.xcassets in Resources */,
 				0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */,
 			);
@@ -251,12 +294,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		241D89BD936057E8D9E38A1D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B852287601941F55B2E76158 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C29BC04838DA7A92197F6C09 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C6C3C151C8F483800B9D934 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
+				0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */,
 				0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +487,7 @@
 		};
 		0C6C3C421C8F483800B9D934 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F05FFE1E653A135E434E0797 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Eventyk/Info.plist;
@@ -406,6 +499,7 @@
 		};
 		0C6C3C431C8F483800B9D934 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2B14F0923A7F473D152EF3C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Eventyk/Info.plist;
@@ -482,6 +576,7 @@
 				0C6C3C431C8F483800B9D934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C6C3C441C8F483800B9D934 /* Build configuration list for PBXNativeTarget "EventykTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +585,7 @@
 				0C6C3C461C8F483800B9D934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0C6C3C471C8F483800B9D934 /* Build configuration list for PBXNativeTarget "EventykUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +594,7 @@
 				0C6C3C491C8F483800B9D934 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
