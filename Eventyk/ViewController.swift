@@ -46,6 +46,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         self.setNeedsStatusBarAppearanceUpdate()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -85,6 +90,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
             print("access allowed")
             self.hud.hidden = true
+            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
             
             }, failure: {
                 //TODO: hacer que el pop funcione
@@ -96,6 +102,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
     }
     
+    @IBAction func goToRegister(sender: AnyObject) {
+        self.performSegueWithIdentifier("registerSegue", sender: self)
+    }
     //MARK: - Events Methods
     func hideKeyboard(){
         self.view.endEditing(true)
