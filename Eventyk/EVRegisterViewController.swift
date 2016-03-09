@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MBProgressHUD
 
-class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource {
+class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UIAlertViewDelegate {
 
     //outlets
     
@@ -25,6 +26,7 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
     var cityPickerView: UIPickerView = UIPickerView()
     let cities = ["Valparaiso","Santiago","La Serena", "Puerto Varas", "Punta Arenas"]
     var birthdatePicker: UIDatePicker = UIDatePicker()
+    var registerHUD = MBProgressHUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +65,12 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
         self.birthdatePicker.datePickerMode = .Date
         self.birthTextField.inputView = self.birthdatePicker
         self.birthTextField.inputAccessoryView = toolBar
+        
+        //hud settings
+        registerHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        registerHUD.mode = .Indeterminate
+        registerHUD.labelText = "Cargando"
+        registerHUD.hidden = true
 
     }
 
@@ -128,7 +136,23 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
     //MARK: - IBActions
     
     @IBAction func register(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+        registerHUD.hidden = false
+        
+        let provider = Provider()
+        provider.register(self.nameTextField.text!, pass: self.passTextField.text!, mail: self.mailTextField.text!, birthdate: self.birthTextField.text!, city: self.cityTextField.text!, success: {
+            
+            self.navigationController?.popToRootViewControllerAnimated(true)
+            self.registerHUD.hidden = true
+
+            }, failure: {
+                
+                let alert = UIAlertView(title: "Error", message: "Error de conexion, por favor revisa tu internet!", delegate: self, cancelButtonTitle: "Ok")
+                alert.show()
+                self.registerHUD.hidden = true
+                
+        })
+        
     }
     
     //MARK: - Other Functions
