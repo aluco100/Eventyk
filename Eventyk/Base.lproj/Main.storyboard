@@ -80,14 +80,6 @@
                                     <constraint firstItem="hzn-dz-hqR" firstAttribute="leading" secondItem="SgO-ZL-67A" secondAttribute="leading" constant="8" id="zjG-I7-ZRy"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHk-N2-y5H">
-                                <rect key="frame" x="278" y="390" width="45" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="45" id="8Uf-gL-VCr"/>
-                                    <constraint firstAttribute="height" constant="43" id="mF6-Nu-uN9"/>
-                                </constraints>
-                                <state key="normal" image="fb"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-19-m4S">
                                 <rect key="frame" x="269" y="323" width="62" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -107,6 +99,19 @@
                                 <connections>
                                     <action selector="goToRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rxf-Jx-5kl"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHk-N2-y5H" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="278" y="390" width="45" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="8Uf-gL-VCr"/>
+                                    <constraint firstAttribute="height" constant="43" id="mF6-Nu-uN9"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8Uf-gL-VCr"/>
+                                        <exclude reference="mF6-Nu-uN9"/>
+                                    </mask>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97213524580001831" green="0.48958307504653931" blue="0.3187919557094574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -137,6 +142,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qVj-cA-AU2"/>
                     <connections>
+                        <outlet property="fbLogin" destination="pHk-N2-y5H" id="Uow-YF-1Ea"/>
                         <outlet property="passTextField" destination="LLq-qX-dnV" id="BJF-F2-PXT"/>
                         <outlet property="userTextField" destination="W5x-J9-e9O" id="2Wc-xd-4Nr"/>
                         <segue destination="GcW-YJ-dcS" kind="showDetail" identifier="loginSigninSegue" id="td8-Re-g92"/>
@@ -414,7 +420,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fb" width="40" height="40"/>
         <image name="logo.png" width="190" height="60"/>
     </resources>
 </document>
