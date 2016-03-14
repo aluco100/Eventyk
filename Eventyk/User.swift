@@ -39,9 +39,20 @@ public class User {
     
     public func setUserFriends(){
         //code
+        /*
+        NOTE: Function only allows with facebook
+        */
     }
     
-    public func setUserPreferences(){
+    public func setUserPreferences(success:()->Void){
+        let provider = Provider()
         
+        provider.getUserPreferences(self, success: {
+            
+            preferences in
+            self.Gustos = preferences
+            success()
+            
+        })
     }
 }

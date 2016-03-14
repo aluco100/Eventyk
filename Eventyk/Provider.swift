@@ -138,4 +138,62 @@ class Provider {
             success(prefs)
         })
     }
+    
+    internal func getEvents(limit: Int,success: ([Event])->Void){
+        //TODO: actualizar con Realm
+        var eventList: [Event] = []
+        
+        let params = ["limit": limit]
+        
+        Alamofire.request(.GET, "\(BaseURL)events.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            
+            let dataArray = response.result.value as! NSArray
+            
+            for objects in dataArray{
+                if let dict = objects as? NSDictionary{
+                    if let idEvent = dict["idEvento"] as? String, name = dict["Nombre"] as? String, date = dict["Fecha"] as? String, hour = dict["Hora_inicio"] as? String, descrip = dict["Descripcion"] as? String, shortDescrip = dict["BreveDescripcion"] as? String, place = dict["Lugar"] as? String, pref = dict["Gusto_evento"] as? String, zone = dict["Zona"] as? String, type = dict["Tipo"] as? String, isDestacable = dict["esDestacado"] as? String, link = dict["Link_Evento"] as? String, image = dict["Imagen"] as? String, company = dict["NombreEmpresa"] as? String{
+                        
+                        let dateFormatter = NSDateFormatter()
+                        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+                        let flagDestacable = isDestacable == "1" ? true : false
+                        
+                        //TODO: Buscar el gusto asociado con REALM !
+                        
+                        let likeHood = Preference(identificator: "1", name: pref)
+                        
+                        let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, visitors: [], descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: NSURL(string: link)!, likehood: likeHood, image: image)
+                        
+                        event.setParticipants({
+                            eventList.append(event)
+                        })
+                        
+                    }
+                }
+            }
+            success(eventList)
+        })
+    }
+    
+    internal func getEventParticipants(event: Event,success:([String])->Void){
+        
+        var names: [String] = []
+        
+        let params = ["idEvent": event.getId()]
+        
+        Alamofire.request(.GET, "\(BaseURL)getEventParticipants.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            let dataArray = response.result.value as! NSArray
+            
+            for objectList in dataArray{
+                if let dict = objectList as? NSDictionary{
+                    if let user = dict["Nombre"] as? String{
+                        names.append(user)
+                    }
+                }
+            }
+            success(names)
+        })
+        
+    }
 }

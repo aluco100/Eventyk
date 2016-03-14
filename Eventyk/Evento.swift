@@ -11,10 +11,10 @@ import RealmSwift
 import UIKit
 
 public class Event {
-    private var Id: Int
+    private var Id: String
     public var Name: String
     public var Date: NSDate
-    private var Participants: [User]
+    private var Participants: [String]
     public var Description: String
     public var ShortDescription: String
     public var Place: String
@@ -24,8 +24,9 @@ public class Event {
     public var Company: String
     public var Link: NSURL
     public var Likehood: Preference
+    public var imageNamed: String
     
-    init(identificator: Int,name: String, date: NSDate, visitors: [User], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: NSURL, likehood: Preference){
+    init(identificator: String,name: String, date: NSDate, visitors: [String], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: NSURL, likehood: Preference, image: String){
         
         self.Id = identificator
         self.Name = name
@@ -40,17 +41,29 @@ public class Event {
         self.Company = company
         self.Link = link
         self.Likehood = likehood
+        self.imageNamed = image
         
     }
     
     //MARK: - Getter
     
-    public func getId()->Int{
+    public func getId()->String{
         return self.Id
     }
     
-    public func getParticipants()->[User]{
+    public func getParticipants()->[String]{
         return self.Participants
+    }
+    
+    //MARK: - Setter
+    
+    public func setParticipants(success:()->Void){
+        let provider = Provider()
+        provider.getEventParticipants(self, success: {
+            names in
+            self.Participants = names
+            success()
+        })
     }
     
     //MARK: - Main Methods
