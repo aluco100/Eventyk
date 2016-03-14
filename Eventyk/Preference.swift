@@ -10,14 +10,19 @@ import Foundation
 import RealmSwift
 import UIKit
 
-public class Preference {
-    public var Id: String
-    public var Nombre: String
-    public var Chosen: Bool
+public class Preference: Object {
+    public dynamic var Id: String = ""
+    public dynamic var Nombre: String = ""
+    public dynamic var Chosen: Bool = false
     
-    init(identificator: String, name: String){
+    convenience init(identificator: String, name: String){
+        self.init()
         self.Id = identificator
         self.Nombre = name
         self.Chosen = false
+    }
+    
+    override public static func primaryKey() -> String? {
+        return "Id"
     }
 }

@@ -175,9 +175,9 @@ class Provider {
         })
     }
     
-    internal func getEventParticipants(event: Event,success:([String])->Void){
+    internal func getEventParticipants(event: Event,success:([Friend])->Void){
         
-        var names: [String] = []
+        var names: [Friend] = []
         
         let params = ["idEvent": event.getId()]
         
@@ -187,8 +187,9 @@ class Provider {
             
             for objectList in dataArray{
                 if let dict = objectList as? NSDictionary{
-                    if let user = dict["Nombre"] as? String{
-                        names.append(user)
+                    if let user = dict["Nombre"] as? String, id = dict["idUsuario"] as? String{
+                        let friend = Friend(id: id, name: user)
+                        names.append(friend)
                     }
                 }
             }

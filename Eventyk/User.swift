@@ -6,19 +6,24 @@
 //  Copyright © 2016 Innovarco. All rights reserved.
 //
 
+//TODO: Colocar Objecto Friends en la friendlist
+
 import Foundation
 import RealmSwift
-public class User {
-    private var UserId: String
-    public var Name: String
-    private var Password: String
-    public var Mail: String
-    private var Birthdate: NSDate
-    private var Friends: [User]
-    private var Gustos: [Preference]
-    public var City: String
+public class User: Object {
+    private dynamic var UserId: String = ""
+    public dynamic var Name: String = ""
+    private dynamic var Password: String = ""
+    public dynamic var Mail: String = ""
+    private dynamic var Birthdate: NSDate = NSDate()
+    private var Friends: [Friend] = []
+    private var Gustos: [Preference] = []
+    public dynamic var City: String = ""
     
-    init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [User],gustos: [Preference], city: String){
+    convenience init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [Friend],gustos: [Preference], city: String){
+        
+        self.init(identificator: identificator, email: email, pass: pass, name: name, birthdate: birthdate, friendlist: friendlist, gustos: gustos, city: city)
+        
         //User initial configuration
         self.UserId = identificator
         self.Mail = email
@@ -54,5 +59,11 @@ public class User {
             success()
             
         })
+    }
+    
+    //MARK: - Realm methods
+    
+    override public static func primaryKey() -> String? {
+        return "UserId"
     }
 }

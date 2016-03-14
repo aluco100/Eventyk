@@ -10,24 +10,24 @@ import Foundation
 import RealmSwift
 import UIKit
 
-public class Event {
-    private var Id: String
-    public var Name: String
-    public var Date: NSDate
-    private var Participants: [String]
-    public var Description: String
-    public var ShortDescription: String
-    public var Place: String
-    public var Zone: String
-    public var Type: String
-    public var IsDestacable: Bool
-    public var Company: String
-    public var Link: NSURL
-    public var Likehood: Preference
-    public var imageNamed: String
+public class Event: Object{
+    private dynamic var Id: String = ""
+    public dynamic var Name: String = ""
+    public dynamic var Date: NSDate = NSDate()
+    private var Participants: [Friend] = []
+    public dynamic var Description: String = ""
+    public dynamic var ShortDescription: String = ""
+    public dynamic var Place: String = ""
+    public dynamic var Zone: String = ""
+    public dynamic var Type: String = ""
+    public dynamic var IsDestacable: Bool = false
+    public dynamic var Company: String = ""
+    public dynamic var Link: NSURL = NSURL()
+    public var Likehood: Preference = Preference(identificator: "", name: "")
+    public dynamic var imageNamed: String = ""
     
-    init(identificator: String,name: String, date: NSDate, visitors: [String], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: NSURL, likehood: Preference, image: String){
-        
+    convenience init(identificator: String,name: String, date: NSDate, visitors: [Friend], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: NSURL, likehood: Preference, image: String){
+        self.init(identificator: identificator, name: name, date: date, visitors: visitors, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: isDestacable, company: company, link: link, likehood: likehood, image: image)
         self.Id = identificator
         self.Name = name
         self.Date = date
@@ -51,7 +51,7 @@ public class Event {
         return self.Id
     }
     
-    public func getParticipants()->[String]{
+    public func getParticipants()->[Friend]{
         return self.Participants
     }
     
@@ -68,4 +68,10 @@ public class Event {
     
     //MARK: - Main Methods
     
+    
+    //MARK: - REALM Methods
+    
+    override public static func primaryKey() -> String? {
+        return "Id"
+    }
 }
