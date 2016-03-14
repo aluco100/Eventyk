@@ -99,18 +99,22 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         hud.hidden = false
         
         let provider = Provider()
-        provider.signIn(self.userTextField.text!, pass: self.passTextField.text!, success: {
-            
-            print("access allowed")
-            self.hud.hidden = true
-            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
-            
-            }, failure: {
-                //TODO: hacer que el pop funcione
-                print("access denied")
-                self.hud.hidden = true
+        provider.getPreferences({
+            preferences in
+            provider.signIn(self.userTextField.text!, pass: self.passTextField.text!, success: {
                 
+                print("access allowed")
+                self.hud.hidden = true
+                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+                
+                }, failure: {
+                    //TODO: hacer que el pop funcione
+                    print("access denied")
+                    self.hud.hidden = true
+                    
+            })
         })
+        
 
         
     }

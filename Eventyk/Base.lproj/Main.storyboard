@@ -145,7 +145,7 @@
                         <outlet property="fbLogin" destination="pHk-N2-y5H" id="Uow-YF-1Ea"/>
                         <outlet property="passTextField" destination="LLq-qX-dnV" id="BJF-F2-PXT"/>
                         <outlet property="userTextField" destination="W5x-J9-e9O" id="2Wc-xd-4Nr"/>
-                        <segue destination="GcW-YJ-dcS" kind="showDetail" identifier="loginSigninSegue" id="td8-Re-g92"/>
+                        <segue destination="3RR-Rk-xW6" kind="showDetail" identifier="loginSigninSegue" id="td8-Re-g92"/>
                         <segue destination="nfs-N9-3PD" kind="push" identifier="registerSegue" id="K7W-iY-hyh"/>
                     </connections>
                 </viewController>
@@ -381,7 +381,7 @@
             </objects>
             <point key="canvasLocation" x="1867" y="-1160"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="WW9-2c-vmD">
             <objects>
                 <viewController id="GcW-YJ-dcS" sceneMemberID="viewController">
@@ -394,10 +394,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="Hbt-Kx-vAg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueD-fz-Woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1867" y="-508"/>
+            <point key="canvasLocation" x="2679" y="-508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9AF-ri-fDL">
@@ -417,6 +418,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LTk-jg-Bhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="-508"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZGe-iu-VAU">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3RR-Rk-xW6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oWy-od-ssA">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="GcW-YJ-dcS" kind="relationship" relationship="viewControllers" id="5Pp-fH-Rd0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d5v-Ku-wCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1867" y="-508"/>
         </scene>
     </scenes>
     <resources>

@@ -86,10 +86,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-EventykTests/Alamofire.framework"
   install_framework "Pods-EventykTests/MBProgressHUD.framework"
+  install_framework "Pods-EventykTests/Realm.framework"
+  install_framework "Pods-EventykTests/RealmSwift.framework"
   install_framework "Pods-EventykTests/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-EventykTests/Alamofire.framework"
   install_framework "Pods-EventykTests/MBProgressHUD.framework"
+  install_framework "Pods-EventykTests/Realm.framework"
+  install_framework "Pods-EventykTests/RealmSwift.framework"
   install_framework "Pods-EventykTests/pop.framework"
 fi

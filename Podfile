@@ -6,6 +6,7 @@ use_frameworks!
 pod 'Alamofire', '~> 3.0'
 pod 'pop', '~> 1.0'
 pod 'MBProgressHUD', '~> 0.9.2'
+pod 'RealmSwift'
 
 target 'Eventyk' do
 
