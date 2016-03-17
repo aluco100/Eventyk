@@ -174,7 +174,6 @@ class Provider {
                         dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
                         let flagDestacable = isDestacable == "1" ? true : false
                         
-                        //TODO: Buscar el gusto asociado con REALM !
                         
                         let prefs = self.realm.objects(Preference).filter("Nombre = %@",pref)
                         

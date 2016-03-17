@@ -59,7 +59,10 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     override func viewWillAppear(animated: Bool) {
         self.setNeedsStatusBarAppearanceUpdate()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
@@ -69,7 +72,6 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
         }
-
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -156,6 +158,8 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
             if result.grantedPermissions.contains("email")
             {
                 // Do work
+                print("Loggin success!")
+                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
             }
         }
     }
