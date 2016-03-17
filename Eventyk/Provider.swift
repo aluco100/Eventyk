@@ -218,4 +218,49 @@ class Provider {
         })
         
     }
+    
+    internal func registerFromFacebook(name: String, email: String, success:()->Void){
+        let params = ["name":name,"user":email]
+        
+        Alamofire.request(.POST, "\(BaseURL)fbLogin.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            
+            success()
+        })
+        
+    }
+    
+    internal func getUserDataFromFacebook(email: String, completion: (user: User)->Void){
+        
+        let params = ["user" : email]
+        
+        Alamofire.request(.GET, "\(BaseURL)fbUserData.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            print(response.result.value)
+            if let dataArray = response.result.value as? NSArray{
+                if let dict = dataArray[0] as? NSDictionary{
+                    print("dict")
+                    let id = dict["idUsuario"] as! String
+                    let name = dict["Nombre"] as! String
+                    let email = dict["email"] as! String
+                    let user = User(identificator: id, email: email, pass: "", name: name, birthdate: NSDate(), friendlist: [], gustos: [], city: "")
+                    try! self.realm.write({
+                        self.realm.add(user, update: true)
+                        completion(user: user)
+                    })
+//                    if let id = dict["idUsuario"] as? Int, name = dict["Nombre"] as? String, email = dict["email"] as? String{
+//                        print("ok")
+//                        let user = User(identificator: id, email: email, pass: "", name: name, birthdate: NSDate(), friendlist: [], gustos: [], city: "")
+//                        try! self.realm.write({
+//                            self.realm.add(user, update: true)
+//                            completion(user: user)
+//                        })
+//                    }
+
+                }
+                
+            }
+            
+        })
+    }
 }

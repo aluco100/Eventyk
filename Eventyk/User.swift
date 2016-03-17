@@ -22,7 +22,7 @@ public class User: Object {
     
     convenience init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [Friend],gustos: [Preference], city: String){
         
-        self.init(identificator: identificator, email: email, pass: pass, name: name, birthdate: birthdate, friendlist: friendlist, gustos: gustos, city: city)
+        self.init()
         
         //User initial configuration
         self.UserId = identificator

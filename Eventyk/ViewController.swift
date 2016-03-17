@@ -20,6 +20,11 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     @IBOutlet var fbLogin: FBSDKLoginButton!
     //global variables
     var hud: MBProgressHUD = MBProgressHUD()
+    var fbUser: String = ""
+    var fbMail: String = ""
+    var fbFlag: Bool = false
+    var User: String = ""
+    var Pass: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +48,10 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
-            returnUserData()
-            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+            returnUserData({
+                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+            })
+            
         }else{
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
@@ -66,8 +73,16 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
-            returnUserData()
-            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+            returnUserData({
+                let provider = Provider()
+                self.hud.hidden = false
+                provider.registerFromFacebook(self.fbUser, email: self.fbMail, success: {
+                    self.hud.hidden = true
+                    self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+                })
+            })
+            
+            
         }else{
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
@@ -169,7 +184,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         //logout
     }
 
-    func returnUserData()
+    func returnUserData(completion: ()->Void)
     {
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,name,email"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -186,9 +201,35 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                 print("User Name is: \(userName)")
                 let userEmail : NSString = result.valueForKey("email") as! NSString
                 print("User Email is: \(userEmail)")
-                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+                self.fbMail = userEmail as String
+                self.fbUser = userName as String
+                print("fbMail: \(self.fbMail) fbUser: \(self.fbUser)")
+                self.fbFlag = true
+                completion()
             }
         })
+    }
+    
+    //MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "loginSigninSegue"){
+            if let barViewControllers = segue.destinationViewController as? UITabBarController{
+                if let destination = barViewControllers.viewControllers![0] as? EVHomeViewController{
+                        print("accion")
+                        if(self.fbFlag){
+                            print("accion")
+                            destination.User = self.fbUser
+                            destination.Mail = self.fbMail
+                            destination.flagFB = true
+                        }else{
+                            destination.User = self.User
+                            destination.Pass = self.Pass
+                            destination.flagFB = false
+                        }
+                    }
+                }
+            
+        }
     }
 }
 

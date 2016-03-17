@@ -13,10 +13,14 @@ class EVHomeViewController: UIViewController {
 
     //MARK: - Global Variables
     var User: String = ""
+    var Mail: String = ""
     var Pass: String = ""
+    var flagFB: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("User: \(self.User) mail: \(self.Mail) flag: \(flagFB)")
         
         let realm = try! Realm()
         
@@ -37,19 +41,34 @@ class EVHomeViewController: UIViewController {
         
         getPrefs({
             let events = realm.objects(Event)
+            let provider = Provider()
             
             if(events.count > 0){
                 //return events
                 print("Events:  \(events)")
             }else{
-                let provider = Provider()
+                
                 
                 provider.getEvents(10, success: {
                     events in
                     print("Events: \(events)")
                 })
+                
+                
             }
+            
         })
+        
+        if(self.flagFB){
+            print("hola")
+            let provider = Provider()
+            provider.getUserDataFromFacebook(self.Mail, completion: {
+                user in
+                print("User from fb: \(user)")
+                
+            })
+        }
+
         
         
         // Do any additional setup after loading the view.
