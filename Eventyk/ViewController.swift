@@ -44,7 +44,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         {
             // User is already logged in, do work such as go to next view controller.
             returnUserData()
-//            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
         }else{
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
@@ -59,6 +59,17 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     override func viewWillAppear(animated: Bool) {
         self.setNeedsStatusBarAppearanceUpdate()
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        if (FBSDKAccessToken.currentAccessToken() != nil)
+        {
+            // User is already logged in, do work such as go to next view controller.
+            returnUserData()
+            self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+        }else{
+            self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
+            self.fbLogin.delegate = self
+        }
+
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -170,6 +181,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                 print("User Name is: \(userName)")
                 let userEmail : NSString = result.valueForKey("email") as! NSString
                 print("User Email is: \(userEmail)")
+                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
             }
         })
     }

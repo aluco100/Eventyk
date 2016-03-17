@@ -12,6 +12,7 @@
 		0C0ADAE11C8F5441004D8901 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE01C8F5441004D8901 /* logo.png */; };
 		0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */; };
 		0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */; };
+		0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4109961C9B156000968DE2 /* EVHomeViewController.swift */; };
 		0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */; };
 		0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1E1C8F483800B9D934 /* ViewController.swift */; };
 		0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6C3C201C8F483800B9D934 /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 		0C0ADAE01C8F5441004D8901 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Assets.xcassets/logo.png; sourceTree = "<group>"; };
 		0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsz_facebook.png; path = Assets.xcassets/rsz_facebook.png; sourceTree = "<group>"; };
 		0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVRegisterViewController.swift; sourceTree = "<group>"; };
+		0C4109961C9B156000968DE2 /* EVHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeViewController.swift; sourceTree = "<group>"; };
 		0C6C3C191C8F483800B9D934 /* Eventyk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventyk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6C3C1E1C8F483800B9D934 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */,
 				0C6C3C1E1C8F483800B9D934 /* ViewController.swift */,
+				0C4109961C9B156000968DE2 /* EVHomeViewController.swift */,
 				0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */,
 				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0CFCD5D71C9605E000BD878C /* User.swift */,
@@ -391,6 +394,7 @@
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
 				0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */,
 				0CFCD5D81C9605E000BD878C /* User.swift in Sources */,
+				0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */,
 				0CFCD5DA1C96144900BD878C /* Preference.swift in Sources */,
 				0CFCD5DC1C961C5A00BD878C /* Evento.swift in Sources */,
 				0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */,

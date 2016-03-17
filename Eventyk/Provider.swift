@@ -6,15 +6,20 @@
 //  Copyright © 2016 Innovarco. All rights reserved.
 //
 
+//TODO: GET USER DATA CON FACEBOOK
+
 import Foundation
 import Alamofire
+import RealmSwift
 
 class Provider {
     private var BaseURL: String
+    private var realm: Realm
     
     init(){
 //        BaseURL = "http://eeventyk-api.esy.es/"
         BaseURL = "http://eventyk.com/api/"
+        realm = try! Realm()
     }
     
     //MARK : - Sign In
@@ -70,6 +75,9 @@ class Provider {
                     if let identificator = dictionary["idGustos"] as? String{
                         
                         let relatedPreference = Preference(identificator: identificator, name: name)
+                        try! self.realm.write({
+                            self.realm.add(relatedPreference, update: true)
+                        })
                         preferencesResult.append(relatedPreference)
                         
                     }
@@ -103,7 +111,15 @@ class Provider {
                                 
                                 userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city)
                                 //TODO: set preferences
-                                success(userData)
+                                userData.setUserPreferences({
+                                    
+                                    try! self.realm.write({
+                                        self.realm.add(userData, update: true)
+                                    })
+                                    
+                                    success(userData)
+                                })
+                                
                                 
                             }
                         }
@@ -160,14 +176,18 @@ class Provider {
                         
                         //TODO: Buscar el gusto asociado con REALM !
                         
-                        let likeHood = Preference(identificator: "1", name: pref)
+                        let prefs = self.realm.objects(Preference).filter("Nombre = %@",pref)
                         
-                        let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, visitors: [], descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: NSURL(string: link)!, likehood: likeHood, image: image)
+                        let likeHood = prefs.first!
+                        
+                        let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, visitors: [], descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
                         
                         event.setParticipants({
-                            eventList.append(event)
+                            try! self.realm.write({
+                                self.realm.add(event, update: true)
+                            })
                         })
-                        
+                        eventList.append(event)
                     }
                 }
             }

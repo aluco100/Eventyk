@@ -6,7 +6,7 @@
 //  Copyright © 2016 Innovarco. All rights reserved.
 //
 
-//TODO: Colocar Objecto Friends en la friendlist
+//TODO: Collection types in Realm
 
 import Foundation
 import RealmSwift

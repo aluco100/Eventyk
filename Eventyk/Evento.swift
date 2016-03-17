@@ -22,12 +22,13 @@ public class Event: Object{
     public dynamic var Type: String = ""
     public dynamic var IsDestacable: Bool = false
     public dynamic var Company: String = ""
-    public dynamic var Link: NSURL = NSURL()
-    public var Likehood: Preference = Preference(identificator: "", name: "")
+    public dynamic var Link: String = ""
+    public var Likehood: Preference? = nil
     public dynamic var imageNamed: String = ""
     
-    convenience init(identificator: String,name: String, date: NSDate, visitors: [Friend], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: NSURL, likehood: Preference, image: String){
-        self.init(identificator: identificator, name: name, date: date, visitors: visitors, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: isDestacable, company: company, link: link, likehood: likehood, image: image)
+    convenience init(identificator: String,name: String, date: NSDate, visitors: [Friend], descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: String, likehood: Preference, image: String){
+//        self.init(identificator: identificator, name: name, date: date, visitors: visitors, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: isDestacable, company: company, link: link, likehood: likehood, image: image)
+        self.init()
         self.Id = identificator
         self.Name = name
         self.Date = date
