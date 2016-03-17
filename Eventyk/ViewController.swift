@@ -160,6 +160,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         }
     }
     
+    
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         //logout
     }

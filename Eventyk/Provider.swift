@@ -180,14 +180,16 @@ class Provider {
                         
                         let likeHood = prefs.first!
                         
-                        let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, visitors: [], descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
+                        let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
                         
+                        //Por ahora no necesita participantes, el controlador se encarga
                         event.setParticipants({
                             try! self.realm.write({
                                 self.realm.add(event, update: true)
                             })
+                            eventList.append(event)
                         })
-                        eventList.append(event)
+                        
                     }
                 }
             }
@@ -195,11 +197,11 @@ class Provider {
         })
     }
     
-    internal func getEventParticipants(event: Event,success:([Friend])->Void){
+    internal func getEventParticipants(id: String,success:(List<Friend>)->Void){
         
-        var names: [Friend] = []
+        let names = List<Friend>()
         
-        let params = ["idEvent": event.getId()]
+        let params = ["idEvent": id]
         
         Alamofire.request(.GET, "\(BaseURL)getEventParticipants.php", parameters: params).responseJSON(completionHandler: {
             response in

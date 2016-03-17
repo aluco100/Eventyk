@@ -20,35 +20,38 @@ class EVHomeViewController: UIViewController {
         
         let realm = try! Realm()
         
-        let prefs = realm.objects(Preference)
-        
-        if(prefs.count > 0){
-            //return preferences
-            print("Preferences: \(prefs)")
-        }else{
-            let provider = Provider()
-            provider.getPreferences({
-                prefs in
-                print("Preferences: \(prefs)")
-            })
-        }
+//        let prefs = realm.objects(Preference)
+//        
+//        if(prefs.count > 0){
+//            //return preferences
+//            print("Preferences: \(prefs)")
+//        }else{
+//            let provider = Provider()
+//            provider.getPreferences({
+//                prefs in
+//                print("Preferences: \(prefs)")
+//            })
+//        }
         
         //load events
         
-        let events = realm.objects(Event)
-        
-        if(events.count > 0){
-            //return events
-            print("Events:  \(events)")
-        }else{
-            let provider = Provider()
+        getPrefs({
+            let events = realm.objects(Event)
             
-            provider.getEvents(10, success: {
-                events in
-                print("Events: \(events)")
-            })
-        }
-
+            if(events.count > 0){
+                //return events
+                print("Events:  \(events)")
+            }else{
+                let provider = Provider()
+                
+                provider.getEvents(10, success: {
+                    events in
+                    print("Events: \(events)")
+                })
+            }
+        })
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -68,4 +71,23 @@ class EVHomeViewController: UIViewController {
     }
     */
 
+    func getPrefs(success:()->Void){
+        let realm = try! Realm()
+        
+        let prefs = realm.objects(Preference)
+        
+        if(prefs.count > 0){
+            //return preferences
+            print("Preferences: \(prefs)")
+            success()
+        }else{
+            let provider = Provider()
+            provider.getPreferences({
+                prefs in
+                print("Preferences: \(prefs)")
+                success()
+            })
+        }
+
+    }
 }
