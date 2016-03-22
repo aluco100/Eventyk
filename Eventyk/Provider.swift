@@ -90,26 +90,32 @@ class Provider {
     
     
     internal func getUserData(mail: String, pass: String,success: (User) -> Void){
-        let params = ["user":mail, "pass": pass]
-        Alamofire.request(.GET, "\(BaseURL)getUserData.php", parameters: params).responseJSON(completionHandler: {
+        let params = ["user": mail, "pass": pass]
+        Alamofire.request(.GET, "\(BaseURL)getUser.php", parameters: params).responseJSON(completionHandler: {
             response in
             
             var userData:User
             
             let formatter = NSDateFormatter()
+            formatter.locale = NSLocale.currentLocale()
+            formatter.lenient = true
             formatter.dateFormat = "yyyy-MM-dd"
             
+            print("response: \(response)")
+            
             if let data = response.result.value as? NSDictionary{
+                print("data: \(data)")
                 
                 if let identificator = data["idUsuario"] as? String{
                     
                     if let name = data["Nombre"] as? String{
                         
-                        if let birthdate = formatter.dateFromString(data["Fecha_Nacimiento"] as! String)! as NSDate?{
+                        if let birthdate = formatter.dateFromString(data["Fecha_Nacimiento"] as! String) as NSDate?{
                             
                             if let city = data["Ciudad"] as? String{
                                 
                                 userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city)
+                                
                                 //TODO: set preferences
                                 userData.setUserPreferences({
                                     
@@ -118,6 +124,7 @@ class Provider {
                                     })
                                     
                                     success(userData)
+                                    return
                                 })
                                 
                                 

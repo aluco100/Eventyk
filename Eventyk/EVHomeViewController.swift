@@ -9,13 +9,18 @@
 import UIKit
 import RealmSwift
 
-class EVHomeViewController: UIViewController {
+class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Global Variables
     var User: String = ""
     var Mail: String = ""
     var Pass: String = ""
     var flagFB: Bool = false
+    
+    var eventsStorage:[Event] = []
+    
+    //MARK: - Outlet Variables
+    @IBOutlet var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +29,8 @@ class EVHomeViewController: UIViewController {
         
         let realm = try! Realm()
         
-//        let prefs = realm.objects(Preference)
-//        
-//        if(prefs.count > 0){
-//            //return preferences
-//            print("Preferences: \(prefs)")
-//        }else{
-//            let provider = Provider()
-//            provider.getPreferences({
-//                prefs in
-//                print("Preferences: \(prefs)")
-//            })
-//        }
+        self.eventsTableView.delegate = self
+        self.eventsTableView.dataSource = self
         
         //load events
         
@@ -46,6 +41,10 @@ class EVHomeViewController: UIViewController {
             if(events.count > 0){
                 //return events
                 print("Events:  \(events)")
+                for i in events{
+                    //append events
+                    self.eventsStorage.append(i)
+                }
             }else{
                 
                 
@@ -67,6 +66,13 @@ class EVHomeViewController: UIViewController {
                 print("User from fb: \(user)")
                 
             })
+        }else{
+            
+            let provider = Provider()
+            provider.getUserData(self.User, pass: self.Pass, success: {
+                user in
+                print("User from registration: \(user)")
+            })
         }
 
         
@@ -79,6 +85,25 @@ class EVHomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: - Table View Delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.eventsStorage.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell: UITableViewCell = self.eventsTableView.dequeueReusableCellWithIdentifier("eventIdentifier", forIndexPath: indexPath)
+        cell.textLabel?.text = self.eventsStorage[indexPath.row].Name
+        
+        
+        return cell
+    }
 
     /*
     // MARK: - Navigation
@@ -89,7 +114,15 @@ class EVHomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    //MARK: - IBActions
+    
+    @IBAction func logOut(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    
+    //MARK: - Other Methods
     func getPrefs(success:()->Void){
         let realm = try! Realm()
         

@@ -381,7 +381,7 @@
             </objects>
             <point key="canvasLocation" x="1867" y="-1160"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="WW9-2c-vmD">
             <objects>
                 <viewController id="GcW-YJ-dcS" customClass="EVHomeViewController" customModule="Eventyk" customModuleProvider="target" sceneMemberID="viewController">
@@ -392,13 +392,51 @@
                     <view key="view" contentMode="scaleToFill" id="ftT-tC-dmc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fZA-bL-pPa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventIdentifier" id="od4-W6-IJP">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="od4-W6-IJP" id="fzZ-EI-gNO">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fZA-bL-pPa" firstAttribute="leading" secondItem="ftT-tC-dmc" secondAttribute="leading" id="HAc-BO-V8s"/>
+                            <constraint firstItem="fZA-bL-pPa" firstAttribute="top" secondItem="ftT-tC-dmc" secondAttribute="top" id="Hfu-co-cvL"/>
+                            <constraint firstAttribute="bottom" secondItem="fZA-bL-pPa" secondAttribute="bottom" id="XaG-Au-N0M"/>
+                            <constraint firstAttribute="trailing" secondItem="fZA-bL-pPa" secondAttribute="trailing" id="trO-0q-Ou8"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="Hbt-Kx-vAg"/>
+                    <navigationItem key="navigationItem" id="VKg-Mb-sWa">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="gdy-hB-SsL">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kIO-DQ-xqC">
+                                <rect key="frame" x="447" y="7" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Salir"/>
+                                <connections>
+                                    <segue destination="PbM-F0-BLV" kind="unwind" unwindAction="unwindLogOut:" id="o5N-8k-7un"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="eventsTableView" destination="fZA-bL-pPa" id="IAb-jd-O9t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueD-fz-Woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PbM-F0-BLV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2679" y="-508"/>
+            <point key="canvasLocation" x="3491" y="-508"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9AF-ri-fDL">
@@ -429,12 +467,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="GcW-YJ-dcS" kind="relationship" relationship="viewControllers" id="5Pp-fH-Rd0"/>
+                        <segue destination="WmZ-4Q-eMq" kind="relationship" relationship="viewControllers" id="5Pp-fH-Rd0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5v-Ku-wCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1867" y="-508"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="WVY-xw-B7M">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WmZ-4Q-eMq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="Hbt-Kx-vAg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FHd-P6-4Dt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GcW-YJ-dcS" kind="relationship" relationship="rootViewController" id="aZ1-eD-LvO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aSW-vd-vTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2679" y="-508"/>
         </scene>
     </scenes>
     <resources>

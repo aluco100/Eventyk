@@ -133,6 +133,9 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                 
                 print("access allowed")
                 self.hud.hidden = true
+                self.fbFlag = false
+                self.User = self.userTextField.text!
+                self.Pass = self.passTextField.text!
                 self.performSegueWithIdentifier("loginSigninSegue", sender: self)
                 
                 }, failure: {
@@ -214,7 +217,8 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "loginSigninSegue"){
             if let barViewControllers = segue.destinationViewController as? UITabBarController{
-                if let destination = barViewControllers.viewControllers![0] as? EVHomeViewController{
+                if let navContr = barViewControllers.viewControllers![0] as? UINavigationController{
+                    if let destination = navContr.viewControllers[0] as? EVHomeViewController{
                         print("accion")
                         if(self.fbFlag){
                             print("accion")
@@ -226,10 +230,23 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                             destination.Pass = self.Pass
                             destination.flagFB = false
                         }
+
                     }
+                    
                 }
+                
+            }
             
         }
+    }
+    
+    //MARK: - Unwind Segues Selector
+    
+    @IBAction func unwindLogOut(segue:UIStoryboardSegue){
+        //code
+        self.userTextField.text = ""
+        self.passTextField.text = ""
+        FBSDKAccessToken.setCurrentAccessToken(nil)
     }
 }
 
