@@ -98,12 +98,30 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = self.eventsTableView.dequeueReusableCellWithIdentifier("eventIdentifier", forIndexPath: indexPath)
-        cell.textLabel?.text = self.eventsStorage[indexPath.row].Name
+        let cell: EVHomeTableViewCell = (self.eventsTableView.dequeueReusableCellWithIdentifier("eventIdentifier", forIndexPath: indexPath) as! EVHomeTableViewCell)
+        
+        cell.titleEvent.text = self.eventsStorage[indexPath.row].Name
+        cell.descriptionEvent.text = self.eventsStorage[indexPath.row].ShortDescription
+        
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale.currentLocale()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        cell.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
+        
+        let path = "http://eventyk.com/events-media/\(self.eventsStorage[indexPath.row].imageNamed)"
+        cell.imageEvent.image = UIImage(data: NSData(contentsOfURL: NSURL(string: path)!)!)
+//        cell.textLabel?.text = self.eventsStorage[indexPath.row].Name
         
         
         return cell
     }
+    
+    //TODO: Manejo con el height
+    
+//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        
+//    }
 
     /*
     // MARK: - Navigation

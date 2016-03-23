@@ -23,6 +23,7 @@
 		0C780EDE1C90FB1A003C9930 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED11C90DE29003C9930 /* FBSDKCoreKit.framework */; };
 		0C780EDF1C90FB1A003C9930 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED31C90DE37003C9930 /* FBSDKLoginKit.framework */; };
 		0C780EE01C90FB1A003C9930 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED51C90DE44003C9930 /* FBSDKShareKit.framework */; };
+		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CFCD5D81C9605E000BD878C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFCD5D71C9605E000BD878C /* User.swift */; };
 		0CFCD5DA1C96144900BD878C /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFCD5D91C96144900BD878C /* Preference.swift */; };
@@ -76,6 +77,7 @@
 		0C780ED81C90FAB0003C9930 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		0C780ED91C90FAB0003C9930 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		0C780EDA1C90FAB0003C9930 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CFCD5D71C9605E000BD878C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0CFCD5D91C96144900BD878C /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */,
 				0C6C3C1E1C8F483800B9D934 /* ViewController.swift */,
 				0C4109961C9B156000968DE2 /* EVHomeViewController.swift */,
+				0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */,
 				0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */,
 				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0CFCD5D71C9605E000BD878C /* User.swift */,
@@ -392,6 +395,7 @@
 			files = (
 				0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */,
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
+				0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */,
 				0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */,
 				0CFCD5D81C9605E000BD878C /* User.swift in Sources */,
 				0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */,
