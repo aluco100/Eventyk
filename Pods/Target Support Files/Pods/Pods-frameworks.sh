@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/Realm.framework"
   install_framework "Pods/RealmSwift.framework"
+  install_framework "Pods/SwiftCarousel.framework"
   install_framework "Pods/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/MBProgressHUD.framework"
   install_framework "Pods/Realm.framework"
   install_framework "Pods/RealmSwift.framework"
+  install_framework "Pods/SwiftCarousel.framework"
   install_framework "Pods/pop.framework"
 fi

@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Eventyk/MBProgressHUD.framework"
   install_framework "Pods-Eventyk/Realm.framework"
   install_framework "Pods-Eventyk/RealmSwift.framework"
+  install_framework "Pods-Eventyk/SwiftCarousel.framework"
   install_framework "Pods-Eventyk/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Eventyk/MBProgressHUD.framework"
   install_framework "Pods-Eventyk/Realm.framework"
   install_framework "Pods-Eventyk/RealmSwift.framework"
+  install_framework "Pods-Eventyk/SwiftCarousel.framework"
   install_framework "Pods-Eventyk/pop.framework"
 fi

@@ -8,8 +8,8 @@
 
 import UIKit
 import Alamofire
-import pop
 import MBProgressHUD
+import pop 
 
 class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate {
 
@@ -247,6 +247,8 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         self.userTextField.text = ""
         self.passTextField.text = ""
         FBSDKAccessToken.setCurrentAccessToken(nil)
+        
+        
     }
 }
 

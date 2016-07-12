@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-EventykUITests/MBProgressHUD.framework"
   install_framework "Pods-EventykUITests/Realm.framework"
   install_framework "Pods-EventykUITests/RealmSwift.framework"
+  install_framework "Pods-EventykUITests/SwiftCarousel.framework"
   install_framework "Pods-EventykUITests/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-EventykUITests/MBProgressHUD.framework"
   install_framework "Pods-EventykUITests/Realm.framework"
   install_framework "Pods-EventykUITests/RealmSwift.framework"
+  install_framework "Pods-EventykUITests/SwiftCarousel.framework"
   install_framework "Pods-EventykUITests/pop.framework"
 fi

@@ -8,8 +8,8 @@
 
 import UIKit
 import RealmSwift
-
-class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+import SwiftCarousel
+class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
 
     //MARK: - Global Variables
     var User: String = ""
@@ -19,8 +19,15 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     var eventsStorage:[Event] = []
     
+    var selectedEvent: Event? = nil
+    
     //MARK: - Outlet Variables
-    @IBOutlet var eventsTableView: UITableView!
+    
+    @IBOutlet var carouselView: UIView!
+    @IBOutlet var carouselLabel: UILabel!
+    
+    var carousel: SwiftCarousel? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +36,6 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         let realm = try! Realm()
         
-        self.eventsTableView.delegate = self
-        self.eventsTableView.dataSource = self
         
         //load events
         
@@ -58,6 +63,8 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             
         })
         
+        //MARK: - Facebook
+        
         if(self.flagFB){
             print("hola")
             let provider = Provider()
@@ -75,7 +82,34 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
             })
         }
 
+        //MARK: - carousel of Images
         
+        //TODO: Cuando me respondan de github solucionare el problema, el scroll es para un cierto tipo
+        
+        self.carousel = SwiftCarousel(frame: CGRect(origin: CGPointZero, size: CGSize(width: 574, height: 455)))
+        
+        try! self.carousel!.itemsFactory(itemsCount: self.eventsStorage.count, factory: {
+            choice in
+            let baseUrl = "http://www.eventyk.com/events-media/"
+            let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[choice].imageNamed)")
+            let data = NSData(contentsOfURL: url!)
+            let imageView = UIImageView(image: UIImage(data: data!))
+            imageView.frame = CGRect(x: 0.0, y: 0.0, width: 574, height: 455)
+            print(imageView)
+            return imageView
+        })
+        
+        self.carousel!.resizeType = .VisibleItemsPerPage(1)
+        self.carousel!.delegate = self
+        self.carousel?.selectByTapEnabled = false
+        self.carousel?.scrollType = .Freely
+        self.carousel?.didSetDefaultIndex = false
+        self.carouselView.addSubview(carousel!)
+        self.carouselView.addSubview(self.carouselLabel)
+        
+        //MARK: - Initial event by default
+        
+        self.selectedEvent = self.eventsStorage.first
         
         // Do any additional setup after loading the view.
     }
@@ -86,58 +120,40 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     
-    //MARK: - Table View Delegate
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventsStorage.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell: EVHomeTableViewCell = (self.eventsTableView.dequeueReusableCellWithIdentifier("eventIdentifier", forIndexPath: indexPath) as! EVHomeTableViewCell)
-        
-        cell.titleEvent.text = self.eventsStorage[indexPath.row].Name
-        cell.descriptionEvent.text = self.eventsStorage[indexPath.row].ShortDescription
-        
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale.currentLocale()
-        formatter.dateFormat = "yyyy-MM-dd"
-        
-        cell.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
-        
-        let path = "http://eventyk.com/events-media/\(self.eventsStorage[indexPath.row].imageNamed)"
-        cell.imageEvent.image = UIImage(data: NSData(contentsOfURL: NSURL(string: path)!)!)
-//        cell.textLabel?.text = self.eventsStorage[indexPath.row].Name
-        
-        
-        return cell
-    }
-    
-    //TODO: Manejo con el height
-    
-//    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK: - IBActions
     
     @IBAction func logOut(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    @IBAction func AsistToEvent(sender: AnyObject) {
+        //code
+        
+        
+        
+    }
+    
+    @IBAction func seeMore(sender: AnyObject) {
+        //code
+        self.performSegueWithIdentifier("detailsSegue", sender: self)
+    }
+    
+    @IBAction func seeAsistPeople(sender: AnyObject) {
+        //code
+    }
+    
+    
+    //MARK: - SwiftCaroiusel Delegate
+    
+    func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView? {
+        self.carouselLabel.text = self.eventsStorage[index].Name
+        self.selectedEvent = self.eventsStorage[index]
+        
+        print(self.selectedEvent)
+        return item
+    }
+    
     
     
     //MARK: - Other Methods
@@ -160,4 +176,21 @@ class EVHomeViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
 
     }
+    
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+        if(segue.identifier == "detailsSegue"){
+            if let destination = segue.destinationViewController as? EVDetailsViewController{
+                if(self.selectedEvent != nil){
+                    destination.associatedEvent = self.selectedEvent
+                    destination.associatedEvent?.Likehood = self.selectedEvent?.Likehood
+                }
+            }
+        }
+     }
+    
 }

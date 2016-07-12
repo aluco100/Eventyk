@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5F4452312C9958AF5473AECD'
+               BlueprintIdentifier = 'A31C399E1DDE52583C0BAC03'
                BlueprintName = 'Pods-EventykTests'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_EventykTests.framework'>
