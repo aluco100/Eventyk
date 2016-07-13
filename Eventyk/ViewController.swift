@@ -56,6 +56,16 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
         }
+        
+        //add toolbar to keyboard
+        
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+        toolbar.barStyle = .Default
+        
+        toolbar.items = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.okToolbar))]
+        toolbar.sizeToFit()
+        self.userTextField.inputAccessoryView = toolbar
+        self.passTextField.inputAccessoryView = toolbar
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,7 +104,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+        return .Default
     }
     
     //MARK: - TextField Delegate
@@ -249,6 +259,12 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         FBSDKAccessToken.setCurrentAccessToken(nil)
         
         
+    }
+    
+    //MARK: - selector toolbar
+    
+    func okToolbar(){
+        self.view.endEditing(true)
     }
 }
 

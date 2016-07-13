@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EVDetailsViewController: UIViewController {
 
     var associatedEvent: Event? = nil
+    var associatedLikehood: String? = nil
     
     //MARK: - IBOutlets
     @IBOutlet var eventImageView: UIImageView!
@@ -23,12 +25,10 @@ class EVDetailsViewController: UIViewController {
     //TODO: optionals types
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(associatedEvent)
         //event Image
         let baseUrl = "http://www.eventyk.com/events-media/"
         let url = NSURL(string: "\(baseUrl)\(associatedEvent!.imageNamed)")
         let data = NSData(contentsOfURL: url!)
-        let imageView = UIImageView(image: UIImage(data: data!))
         self.eventImageView.image = UIImage(data: data!)
         self.eventImageView.contentMode = .ScaleAspectFit
         
@@ -36,8 +36,10 @@ class EVDetailsViewController: UIViewController {
         self.eventTitle.text = associatedEvent?.Name
         
         //event likehood
-        print(self.associatedEvent!.Likehood?.Nombre)
-        self.eventLikehood.text = associatedEvent?.Likehood?.Nombre
+        let realm = try!Realm()
+        let event = realm.objects(Event).filter("Id == '\(self.associatedEvent!.getId())'").first
+        print(event)
+//        self.eventLikehood.text = event!.Likehood!.Nombre
         
         //event date
         

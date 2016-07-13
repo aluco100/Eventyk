@@ -20,6 +20,7 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
     var eventsStorage:[Event] = []
     
     var selectedEvent: Event? = nil
+    var selectedLikehood: String? = nil
     
     //MARK: - Outlet Variables
     
@@ -150,6 +151,9 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
         self.carouselLabel.text = self.eventsStorage[index].Name
         self.selectedEvent = self.eventsStorage[index]
         
+        print(self.eventsStorage[index].Likehood)
+        
+//        self.selectedLikehood = self.eventsStorage[index].Likehood!.Nombre
         print(self.selectedEvent)
         return item
     }
@@ -188,6 +192,7 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
                 if(self.selectedEvent != nil){
                     destination.associatedEvent = self.selectedEvent
                     destination.associatedEvent?.Likehood = self.selectedEvent?.Likehood
+//                    destination.associatedLikehood = self.selectedLikehood
                 }
             }
         }
