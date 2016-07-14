@@ -25,6 +25,7 @@
 		0C780EDF1C90FB1A003C9930 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED31C90DE37003C9930 /* FBSDKLoginKit.framework */; };
 		0C780EE01C90FB1A003C9930 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED51C90DE44003C9930 /* FBSDKShareKit.framework */; };
 		0C8C56E71D1EFC5000C683FB /* EVDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */; };
+		0C933A531D3814FF008489FA /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C933A521D3814FF008489FA /* calendar.png */; };
 		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
@@ -84,6 +85,7 @@
 		0C780ED91C90FAB0003C9930 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		0C780EDA1C90FAB0003C9930 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVDetailsViewController.swift; sourceTree = "<group>"; };
+		0C933A521D3814FF008489FA /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Assets.xcassets/calendar.png; sourceTree = "<group>"; };
 		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -196,6 +198,7 @@
 		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0C933A521D3814FF008489FA /* calendar.png */,
 				0CF2BA951D3727C900F202B7 /* login_wall.jpg */,
 				0CF2BA921D37200D00F202B7 /* eventyk_register.png */,
 				0C6C872D1D36BA85000AD753 /* eventyk_login.png */,
@@ -355,6 +358,7 @@
 				0C6C872E1D36BA85000AD753 /* eventyk_login.png in Resources */,
 				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
+				0C933A531D3814FF008489FA /* calendar.png in Resources */,
 				0C6C3C241C8F483800B9D934 /* Assets.xcassets in Resources */,
 				0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */,
 			);

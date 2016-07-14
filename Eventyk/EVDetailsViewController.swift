@@ -25,12 +25,13 @@ class EVDetailsViewController: UIViewController {
     //TODO: optionals types
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: Encontrar el nuevo path del archivo
         //event Image
         let baseUrl = "http://www.eventyk.com/events-media/"
         let url = NSURL(string: "\(baseUrl)\(associatedEvent!.imageNamed)")
         let data = NSData(contentsOfURL: url!)
-        self.eventImageView.image = UIImage(data: data!)
-        self.eventImageView.contentMode = .ScaleAspectFit
+//        self.eventImageView.image = UIImage(data: data!)
+//        self.eventImageView.contentMode = .ScaleAspectFit
         
         //event name
         self.eventTitle.text = associatedEvent?.Name

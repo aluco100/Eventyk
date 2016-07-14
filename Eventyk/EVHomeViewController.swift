@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 import SwiftCarousel
-class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
+class EVHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,EVHomeTableViewCellDelegate{
 
     //MARK: - Global Variables
     var User: String = ""
@@ -24,11 +24,7 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
     
     //MARK: - Outlet Variables
     
-    @IBOutlet var carouselView: UIView!
-    @IBOutlet var carouselLabel: UILabel!
-    
-    var carousel: SwiftCarousel? = nil
-    
+    @IBOutlet var eventTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +35,7 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
         
         
         //load events
+        //TODO: En un principio a la primera carga no carga ningun evento, solucionar esto
         
         getPrefs({
             let events = realm.objects(Event)
@@ -46,6 +43,7 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
             
             if(events.count > 0){
                 //return events
+                print("Ya tengo")
                 print("Events:  \(events)")
                 for i in events{
                     //append events
@@ -53,15 +51,20 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
                 }
             }else{
                 
-                
+                //TODO: corregir bug aqui
                 provider.getEvents(10, success: {
                     events in
+                    print("No tengo")
                     print("Events: \(events)")
+                    
+                    for i in events{
+                        self.eventsStorage.append(i)
+                    }
                 })
                 
                 
             }
-            
+            self.eventTableView.reloadData()
         })
         
         //MARK: - Facebook
@@ -82,35 +85,24 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
                 print("User from registration: \(user)")
             })
         }
-
-        //MARK: - carousel of Images
         
-        //TODO: Cuando me respondan de github solucionare el problema, el scroll es para un cierto tipo
-        
-        self.carousel = SwiftCarousel(frame: CGRect(origin: CGPointZero, size: CGSize(width: 574, height: 455)))
-        
-        try! self.carousel!.itemsFactory(itemsCount: self.eventsStorage.count, factory: {
-            choice in
-            let baseUrl = "http://www.eventyk.com/events-media/"
-            let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[choice].imageNamed)")
-            let data = NSData(contentsOfURL: url!)
-            let imageView = UIImageView(image: UIImage(data: data!))
-            imageView.frame = CGRect(x: 0.0, y: 0.0, width: 574, height: 455)
-            print(imageView)
-            return imageView
-        })
-        
-        self.carousel!.resizeType = .VisibleItemsPerPage(1)
-        self.carousel!.delegate = self
-        self.carousel?.selectByTapEnabled = false
-        self.carousel?.scrollType = .Freely
-        self.carousel?.didSetDefaultIndex = false
-        self.carouselView.addSubview(carousel!)
-        self.carouselView.addSubview(self.carouselLabel)
         
         //MARK: - Initial event by default
         
         self.selectedEvent = self.eventsStorage.first
+        
+        //MARK: - TableView Settings
+        
+        self.eventTableView.delegate = self
+        self.eventTableView.dataSource = self
+        self.eventTableView.separatorColor = UIColor.orangeColor()
+        
+        //MARK: - navBar settings
+        
+        self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         // Do any additional setup after loading the view.
     }
@@ -120,6 +112,69 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    
+    //MARK: - Table View Delegate
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.eventsStorage.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventIdentifier", forIndexPath: indexPath) as! EVHomeTableViewCell
+        
+        //TODO: cambio de url + hacer que no se laguee el table view
+        //event Image
+        let baseUrl = "http://www.eventyk.com/events-media/"
+        let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[indexPath.row].imageNamed)")
+        let data = NSData(contentsOfURL: url!)
+//        cell.imageEvent.image = UIImage(data: data!)
+//        cell.imageEvent.contentMode = .ScaleAspectFit
+        
+        //Title
+        
+        cell.titleEvent.text = self.eventsStorage[indexPath.row].Name
+        
+        //Date
+        
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale.systemLocale()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.dateStyle = .FullStyle
+        
+        cell.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
+        
+        //index
+        
+        cell.index = indexPath.row
+        
+        cell.delegate = self
+        
+        return cell
+    }
+    
+    
+    //MARK: - Custom Cell Delegate
+    
+    func seeMore(eventAtIndex: Int) {
+        self.selectedEvent = self.eventsStorage[eventAtIndex]
+        self.performSegueWithIdentifier("detailsSegue", sender: self)
+    }
+    
+    func asistToEvent(eventAtIndex: Int) {
+        self.selectedEvent = self.eventsStorage[eventAtIndex]
+    }
+    
+    func seeAsistPeople(eventAtIndex: Int) {
+        self.selectedEvent = self.eventsStorage[eventAtIndex]
+    }
     
     
     //MARK: - IBActions
@@ -127,37 +182,6 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
     @IBAction func logOut(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    @IBAction func AsistToEvent(sender: AnyObject) {
-        //code
-        
-        
-        
-    }
-    
-    @IBAction func seeMore(sender: AnyObject) {
-        //code
-        self.performSegueWithIdentifier("detailsSegue", sender: self)
-    }
-    
-    @IBAction func seeAsistPeople(sender: AnyObject) {
-        //code
-    }
-    
-    
-    //MARK: - SwiftCaroiusel Delegate
-    
-    func didSelectItem(item item: UIView, index: Int, tapped: Bool) -> UIView? {
-        self.carouselLabel.text = self.eventsStorage[index].Name
-        self.selectedEvent = self.eventsStorage[index]
-        
-        print(self.eventsStorage[index].Likehood)
-        
-//        self.selectedLikehood = self.eventsStorage[index].Likehood!.Nombre
-        print(self.selectedEvent)
-        return item
-    }
-    
     
     
     //MARK: - Other Methods
@@ -192,7 +216,6 @@ class EVHomeViewController: UIViewController ,SwiftCarouselDelegate{
                 if(self.selectedEvent != nil){
                     destination.associatedEvent = self.selectedEvent
                     destination.associatedEvent?.Likehood = self.selectedEvent?.Likehood
-//                    destination.associatedLikehood = self.selectedLikehood
                 }
             }
         }
