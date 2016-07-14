@@ -22,9 +22,21 @@ class EVDetailsViewController: UIViewController {
     @IBOutlet var eventPlace: UILabel!
     @IBOutlet var eventDescription: UITextView!
     
+    //MARK: - IBOutlets views
+    
+    @IBOutlet var eventView: UIView!
+    @IBOutlet var gotoPage: UIButton!
+    
     //TODO: optionals types
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.eventView.layer.cornerRadius = 15.0
+        self.eventDescription.layer.cornerRadius = 15.0
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "logo")!)
+        self.gotoPage.layer.cornerRadius = 15.0
+        
         //TODO: Encontrar el nuevo path del archivo
         //event Image
         let baseUrl = "http://www.eventyk.com/events-media/"
@@ -36,11 +48,12 @@ class EVDetailsViewController: UIViewController {
         //event name
         self.eventTitle.text = associatedEvent?.Name
         
+        //TODO: corregir bug
         //event likehood
         let realm = try!Realm()
-        let event = realm.objects(Event).filter("Id == '\(self.associatedEvent!.getId())'").first
+        let event = realm.objects(Event).filter("Id = %@ ",self.associatedEvent!.getId()).first
         print(event)
-//        self.eventLikehood.text = event!.Likehood!.Nombre
+        self.eventLikehood.text = event?.Likehood?.Nombre
         
         //event date
         
