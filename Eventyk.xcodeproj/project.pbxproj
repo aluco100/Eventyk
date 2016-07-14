@@ -28,6 +28,8 @@
 		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
+		0CF2BA931D37200D00F202B7 /* eventyk_register.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2BA921D37200D00F202B7 /* eventyk_register.png */; };
+		0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2BA951D3727C900F202B7 /* login_wall.jpg */; };
 		0CFCD5D81C9605E000BD878C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFCD5D71C9605E000BD878C /* User.swift */; };
 		0CFCD5DA1C96144900BD878C /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFCD5D91C96144900BD878C /* Preference.swift */; };
 		0CFCD5DC1C961C5A00BD878C /* Evento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFCD5DB1C961C5A00BD878C /* Evento.swift */; };
@@ -85,6 +87,8 @@
 		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0CF2BA921D37200D00F202B7 /* eventyk_register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventyk_register.png; path = Assets.xcassets/eventyk_register.png; sourceTree = "<group>"; };
+		0CF2BA951D3727C900F202B7 /* login_wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = login_wall.jpg; path = Assets.xcassets/login_wall.jpg; sourceTree = "<group>"; };
 		0CFCD5D71C9605E000BD878C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0CFCD5D91C96144900BD878C /* Preference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		0CFCD5DB1C961C5A00BD878C /* Evento.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evento.swift; sourceTree = "<group>"; };
@@ -163,12 +167,9 @@
 				0CFCD5DD1C96216500BD878C /* Recomendation.swift */,
 				0C6C3C201C8F483800B9D934 /* Main.storyboard */,
 				0C6C3C231C8F483800B9D934 /* Assets.xcassets */,
-				0C6C872D1D36BA85000AD753 /* eventyk_login.png */,
 				0C6C3C251C8F483800B9D934 /* LaunchScreen.storyboard */,
 				0C6C3C281C8F483800B9D934 /* Info.plist */,
-				0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */,
-				0C0ADAE01C8F5441004D8901 /* logo.png */,
-				0C0ADADC1C8F52B7004D8901 /* lgo-eventy1.png */,
+				0CF2BA941D3727A300F202B7 /* SupportingFiles */,
 				0C780ED71C90E057003C9930 /* Bridging-header.h */,
 			);
 			path = Eventyk;
@@ -190,6 +191,19 @@
 				0C6C3C3E1C8F483800B9D934 /* Info.plist */,
 			);
 			path = EventykUITests;
+			sourceTree = "<group>";
+		};
+		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				0CF2BA951D3727C900F202B7 /* login_wall.jpg */,
+				0CF2BA921D37200D00F202B7 /* eventyk_register.png */,
+				0C6C872D1D36BA85000AD753 /* eventyk_login.png */,
+				0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */,
+				0C0ADAE01C8F5441004D8901 /* logo.png */,
+				0C0ADADC1C8F52B7004D8901 /* lgo-eventy1.png */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		2485D761FA36FAEB893A1969 /* Frameworks */ = {
@@ -335,7 +349,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6C3C271C8F483800B9D934 /* LaunchScreen.storyboard in Resources */,
+				0CF2BA931D37200D00F202B7 /* eventyk_register.png in Resources */,
 				0C0ADAE11C8F5441004D8901 /* logo.png in Resources */,
+				0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */,
 				0C6C872E1D36BA85000AD753 /* eventyk_login.png in Resources */,
 				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,

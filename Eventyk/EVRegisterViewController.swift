@@ -31,6 +31,8 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "registerWall")!)
+        
         //initial button state
         self.registerButton.enabled = false
         
@@ -82,17 +84,18 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
     //MARK: - View Controller Style
     
     override func viewWillAppear(animated: Bool) {
-        //TODO: hacer que cambie de color el status bar
         self.setNeedsStatusBarAppearanceUpdate()
         self.navigationController?.setNeedsStatusBarAppearanceUpdate()
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.navigationBar.barTintColor = self.view.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barStyle = .Black
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
     
     //MARK: - PickerView Delegate
     
