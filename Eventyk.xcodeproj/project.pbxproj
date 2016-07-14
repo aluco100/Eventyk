@@ -13,7 +13,6 @@
 		0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */; };
 		0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */; };
 		0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4109961C9B156000968DE2 /* EVHomeViewController.swift */; };
-		0C4CB2A61D383527003F686B /* 13706099_10154349990507767_1911776317_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2A51D383527003F686B /* 13706099_10154349990507767_1911776317_n.png */; };
 		0C4CB2A91D383577003F686B /* delete-user-outlined-interface-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */; };
 		0C4CB2AA1D383577003F686B /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2A81D383577003F686B /* internet.png */; };
 		0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */; };
@@ -65,7 +64,6 @@
 		0C0ADAE21C8F56D3004D8901 /* rsz_facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rsz_facebook.png; path = Assets.xcassets/rsz_facebook.png; sourceTree = "<group>"; };
 		0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVRegisterViewController.swift; sourceTree = "<group>"; };
 		0C4109961C9B156000968DE2 /* EVHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeViewController.swift; sourceTree = "<group>"; };
-		0C4CB2A51D383527003F686B /* 13706099_10154349990507767_1911776317_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 13706099_10154349990507767_1911776317_n.png; path = Assets.xcassets/13706099_10154349990507767_1911776317_n.png; sourceTree = "<group>"; };
 		0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete-user-outlined-interface-symbol.png"; path = "Assets.xcassets/delete-user-outlined-interface-symbol.png"; sourceTree = "<group>"; };
 		0C4CB2A81D383577003F686B /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = internet.png; path = Assets.xcassets/internet.png; sourceTree = "<group>"; };
 		0C6C3C191C8F483800B9D934 /* Eventyk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventyk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +204,6 @@
 			children = (
 				0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */,
 				0C4CB2A81D383577003F686B /* internet.png */,
-				0C4CB2A51D383527003F686B /* 13706099_10154349990507767_1911776317_n.png */,
 				0C933A521D3814FF008489FA /* calendar.png */,
 				0CF2BA951D3727C900F202B7 /* login_wall.jpg */,
 				0CF2BA921D37200D00F202B7 /* eventyk_register.png */,
@@ -366,7 +363,6 @@
 				0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */,
 				0C4CB2AA1D383577003F686B /* internet.png in Resources */,
 				0C6C872E1D36BA85000AD753 /* eventyk_login.png in Resources */,
-				0C4CB2A61D383527003F686B /* 13706099_10154349990507767_1911776317_n.png in Resources */,
 				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
 				0C933A531D3814FF008489FA /* calendar.png in Resources */,

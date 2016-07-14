@@ -34,7 +34,6 @@ class EVDetailsViewController: UIViewController {
         
         self.eventView.layer.cornerRadius = 15.0
         self.eventDescription.layer.cornerRadius = 15.0
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "logo")!)
         self.gotoPage.layer.cornerRadius = 15.0
         
         //TODO: Encontrar el nuevo path del archivo
@@ -82,23 +81,13 @@ class EVDetailsViewController: UIViewController {
     
     @IBAction func visitWebPage(sender: AnyObject) {
         
-        //code
-        
         let link = self.associatedEvent?.Link
         
         UIApplication.sharedApplication().openURL(NSURL(string: link!)!)
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func logout(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    */
-
 }

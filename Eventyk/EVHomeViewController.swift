@@ -34,8 +34,7 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         let realm = try! Realm()
         
         
-        //load events
-        //TODO: En un principio a la primera carga no carga ningun evento, solucionar esto
+        //MARK: - Event Management
         
         getPrefs({
             let events = realm.objects(Event)
@@ -49,9 +48,9 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                     //append events
                     self.eventsStorage.append(i)
                 }
+                self.eventTableView.reloadData()
             }else{
                 
-                //TODO: corregir bug aqui
                 provider.getEvents(10, success: {
                     events in
                     print("No tengo")
@@ -60,11 +59,11 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                     for i in events{
                         self.eventsStorage.append(i)
                     }
+                    self.eventTableView.reloadData()
                 })
                 
-                
             }
-            self.eventTableView.reloadData()
+            
         })
         
         //MARK: - Facebook
@@ -96,6 +95,7 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         self.eventTableView.delegate = self
         self.eventTableView.dataSource = self
         self.eventTableView.separatorColor = UIColor.orangeColor()
+        self.eventTableView.reloadData()
         
         //MARK: - navBar settings
         

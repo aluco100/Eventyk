@@ -193,8 +193,9 @@ class Provider {
                             try! self.realm.write({
                                 self.realm.add(event, update: true)
                             })
-                            eventList.append(event)
+                            
                         })
+                        eventList.append(event)
                         
                     }
                 }

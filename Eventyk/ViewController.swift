@@ -13,12 +13,13 @@ import pop
 
 class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDelegate {
 
-    //Outlets
+    //MARK: - Outlets
     @IBOutlet var userTextField: UITextField!
     @IBOutlet var passTextField: UITextField!
-    
     @IBOutlet var fbLogin: FBSDKLoginButton!
-    //global variables
+    
+    
+    //MARK: - Global Variables
     var hud: MBProgressHUD = MBProgressHUD()
     var fbUser: String = ""
     var fbMail: String = ""
@@ -26,25 +27,26 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     var User: String = ""
     var Pass: String = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //textfield delegate
+        //MARK: - Textfield Settings
         self.userTextField.delegate = self
         self.userTextField.keyboardType = .EmailAddress
         self.passTextField.delegate = self
         
-        //gesture
+        //MARK: - Gesture Settings
         let textFieldGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
         self.view.addGestureRecognizer(textFieldGesture)
         
-        //hud
+        //MARK: - ProgressHud Settings
         hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.mode = .Indeterminate
         hud.labelText = "Cargando"
         hud.hidden = true
         
-        //Facebook 
+        //MARK: - Facebook Settings
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
@@ -57,15 +59,17 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
             self.fbLogin.delegate = self
         }
         
-        //add toolbar to keyboard
+        //MARK: - Keyboard's Toolbar
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         toolbar.barStyle = .Default
         
         toolbar.items = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil),UIBarButtonItem(title: "Ok", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ViewController.okToolbar))]
         toolbar.sizeToFit()
+        
         self.userTextField.inputAccessoryView = toolbar
         self.passTextField.inputAccessoryView = toolbar
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,50 +84,66 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
             returnUserData({
+                
                 let provider = Provider()
                 self.hud.hidden = false
                 provider.registerFromFacebook(self.fbUser, email: self.fbMail, success: {
+                    
                     self.hud.hidden = true
                     self.performSegueWithIdentifier("loginSigninSegue", sender: self)
+                    
+                
                 })
             })
             
             
         }else{
+            
             self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
             self.fbLogin.delegate = self
+            
         }
     }
     
     override func viewWillDisappear(animated: Bool) {
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        
         return .Default
+        
     }
     
     //MARK: - TextField Delegate
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        
         //TODO: Hacer que funcione el pop
+        
         let animation:POPSpringAnimation = POPSpringAnimation(propertyNamed: "kPOPViewScaleXY")
         animation.toValue = NSValue(CGPoint: CGPoint(x: 1, y: 1))
         animation.velocity = NSValue(CGPoint: CGPoint(x: 2, y: 2))
         animation.springBounciness = 20
         textField.pop_addAnimation(animation, forKey: "scaleUp")
+        
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
+        
         textField.resignFirstResponder()
+        
     }
     
     
-    //MARK: - IBActions
+    //MARK: - SignIn
     
     @IBAction func SignIn(sender: AnyObject) {
         
@@ -160,9 +180,12 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         
     }
     
+    //MARK: - Register
+    
     @IBAction func goToRegister(sender: AnyObject) {
         self.performSegueWithIdentifier("registerSegue", sender: self)
     }
+    
     //MARK: - Events Methods
     func hideKeyboard(){
         self.view.endEditing(true)
@@ -260,6 +283,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         
         
     }
+    
     
     //MARK: - selector toolbar
     
