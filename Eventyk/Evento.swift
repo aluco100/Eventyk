@@ -23,7 +23,7 @@ public class Event: Object{
     public dynamic var IsDestacable: Bool = false
     public dynamic var Company: String = ""
     public dynamic var Link: String = ""
-    public var Likehood: Preference? = nil
+    public dynamic var Likehood: Preference? = nil
     public dynamic var imageNamed: String = ""
     
     convenience init(identificator: String,name: String, date: NSDate, descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: String, likehood: Preference, image: String){

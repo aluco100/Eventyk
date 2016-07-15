@@ -215,7 +215,6 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
             if let destination = segue.destinationViewController as? EVDetailsViewController{
                 if(self.selectedEvent != nil){
                     destination.associatedEvent = self.selectedEvent
-                    destination.associatedEvent?.Likehood = self.selectedEvent?.Likehood
                 }
             }
         }
