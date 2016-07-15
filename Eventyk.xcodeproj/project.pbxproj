@@ -15,6 +15,9 @@
 		0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4109961C9B156000968DE2 /* EVHomeViewController.swift */; };
 		0C4CB2A91D383577003F686B /* delete-user-outlined-interface-symbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */; };
 		0C4CB2AA1D383577003F686B /* internet.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2A81D383577003F686B /* internet.png */; };
+		0C4CB2AC1D3872DD003F686B /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2AB1D3872DD003F686B /* like.png */; };
+		0C4CB2B01D387AEA003F686B /* EVLikehoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */; };
+		0C4CB2B21D387BB9003F686B /* EVLikehoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */; };
 		0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */; };
 		0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1E1C8F483800B9D934 /* ViewController.swift */; };
 		0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6C3C201C8F483800B9D934 /* Main.storyboard */; };
@@ -66,6 +69,9 @@
 		0C4109961C9B156000968DE2 /* EVHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeViewController.swift; sourceTree = "<group>"; };
 		0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "delete-user-outlined-interface-symbol.png"; path = "Assets.xcassets/delete-user-outlined-interface-symbol.png"; sourceTree = "<group>"; };
 		0C4CB2A81D383577003F686B /* internet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = internet.png; path = Assets.xcassets/internet.png; sourceTree = "<group>"; };
+		0C4CB2AB1D3872DD003F686B /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = Assets.xcassets/like.png; sourceTree = "<group>"; };
+		0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodViewController.swift; sourceTree = "<group>"; };
 		0C6C3C191C8F483800B9D934 /* Eventyk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventyk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6C3C1E1C8F483800B9D934 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 				0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */,
 				0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */,
 				0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */,
+				0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */,
+				0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */,
 				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0CFCD5D71C9605E000BD878C /* User.swift */,
 				0CFCD5D91C96144900BD878C /* Preference.swift */,
@@ -202,6 +210,7 @@
 		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0C4CB2AB1D3872DD003F686B /* like.png */,
 				0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */,
 				0C4CB2A81D383577003F686B /* internet.png */,
 				0C933A521D3814FF008489FA /* calendar.png */,
@@ -367,6 +376,7 @@
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
 				0C933A531D3814FF008489FA /* calendar.png in Resources */,
 				0C4CB2A91D383577003F686B /* delete-user-outlined-interface-symbol.png in Resources */,
+				0C4CB2AC1D3872DD003F686B /* like.png in Resources */,
 				0C6C3C241C8F483800B9D934 /* Assets.xcassets in Resources */,
 				0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */,
 			);
@@ -561,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4CB2B21D387BB9003F686B /* EVLikehoodViewController.swift in Sources */,
 				0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */,
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
 				0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */,
@@ -570,6 +581,7 @@
 				0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */,
 				0CFCD5DA1C96144900BD878C /* Preference.swift in Sources */,
 				0CFCD5DC1C961C5A00BD878C /* Evento.swift in Sources */,
+				0C4CB2B01D387AEA003F686B /* EVLikehoodCollectionViewCell.swift in Sources */,
 				0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */,
 				0CFCD5DE1C96216500BD878C /* Recomendation.swift in Sources */,
 				0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */,
