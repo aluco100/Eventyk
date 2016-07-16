@@ -31,6 +31,18 @@
 		0C780EE01C90FB1A003C9930 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C780ED51C90DE44003C9930 /* FBSDKShareKit.framework */; };
 		0C8C56E71D1EFC5000C683FB /* EVDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */; };
 		0C933A531D3814FF008489FA /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C933A521D3814FF008489FA /* calendar.png */; };
+		0C9A28221D3AA67F002BCDD3 /* ArteyCultura.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28161D3AA67F002BCDD3 /* ArteyCultura.png */; };
+		0C9A28231D3AA67F002BCDD3 /* Cine.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28171D3AA67F002BCDD3 /* Cine.png */; };
+		0C9A28241D3AA67F002BCDD3 /* Deportes.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28181D3AA67F002BCDD3 /* Deportes.png */; };
+		0C9A28251D3AA67F002BCDD3 /* Espectaculos.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28191D3AA67F002BCDD3 /* Espectaculos.png */; };
+		0C9A28261D3AA67F002BCDD3 /* Expo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281A1D3AA67F002BCDD3 /* Expo.png */; };
+		0C9A28271D3AA67F002BCDD3 /* Festival.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281B1D3AA67F002BCDD3 /* Festival.png */; };
+		0C9A28281D3AA67F002BCDD3 /* Fiesta.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281C1D3AA67F002BCDD3 /* Fiesta.png */; };
+		0C9A28291D3AA67F002BCDD3 /* Runner.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281D1D3AA67F002BCDD3 /* Runner.png */; };
+		0C9A282A1D3AA67F002BCDD3 /* Ryder.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281E1D3AA67F002BCDD3 /* Ryder.png */; };
+		0C9A282B1D3AA67F002BCDD3 /* Seminario.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281F1D3AA67F002BCDD3 /* Seminario.png */; };
+		0C9A282C1D3AA67F002BCDD3 /* Social.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28201D3AA67F002BCDD3 /* Social.png */; };
+		0C9A282D1D3AA67F002BCDD3 /* Teatro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28211D3AA67F002BCDD3 /* Teatro.png */; };
 		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
@@ -96,6 +108,18 @@
 		0C780EDA1C90FAB0003C9930 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../FacebookSDKs-iOS-20160210/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVDetailsViewController.swift; sourceTree = "<group>"; };
 		0C933A521D3814FF008489FA /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = calendar.png; path = Assets.xcassets/calendar.png; sourceTree = "<group>"; };
+		0C9A28161D3AA67F002BCDD3 /* ArteyCultura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ArteyCultura.png; path = Assets.xcassets/ArteyCultura.png; sourceTree = "<group>"; };
+		0C9A28171D3AA67F002BCDD3 /* Cine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cine.png; path = Assets.xcassets/Cine.png; sourceTree = "<group>"; };
+		0C9A28181D3AA67F002BCDD3 /* Deportes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Deportes.png; path = Assets.xcassets/Deportes.png; sourceTree = "<group>"; };
+		0C9A28191D3AA67F002BCDD3 /* Espectaculos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Espectaculos.png; path = Assets.xcassets/Espectaculos.png; sourceTree = "<group>"; };
+		0C9A281A1D3AA67F002BCDD3 /* Expo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Expo.png; path = Assets.xcassets/Expo.png; sourceTree = "<group>"; };
+		0C9A281B1D3AA67F002BCDD3 /* Festival.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Festival.png; path = Assets.xcassets/Festival.png; sourceTree = "<group>"; };
+		0C9A281C1D3AA67F002BCDD3 /* Fiesta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fiesta.png; path = Assets.xcassets/Fiesta.png; sourceTree = "<group>"; };
+		0C9A281D1D3AA67F002BCDD3 /* Runner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Runner.png; path = Assets.xcassets/Runner.png; sourceTree = "<group>"; };
+		0C9A281E1D3AA67F002BCDD3 /* Ryder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Ryder.png; path = Assets.xcassets/Ryder.png; sourceTree = "<group>"; };
+		0C9A281F1D3AA67F002BCDD3 /* Seminario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Seminario.png; path = Assets.xcassets/Seminario.png; sourceTree = "<group>"; };
+		0C9A28201D3AA67F002BCDD3 /* Social.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Social.png; path = Assets.xcassets/Social.png; sourceTree = "<group>"; };
+		0C9A28211D3AA67F002BCDD3 /* Teatro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teatro.png; path = Assets.xcassets/Teatro.png; sourceTree = "<group>"; };
 		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -210,6 +234,18 @@
 		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0C9A28161D3AA67F002BCDD3 /* ArteyCultura.png */,
+				0C9A28171D3AA67F002BCDD3 /* Cine.png */,
+				0C9A28181D3AA67F002BCDD3 /* Deportes.png */,
+				0C9A28191D3AA67F002BCDD3 /* Espectaculos.png */,
+				0C9A281A1D3AA67F002BCDD3 /* Expo.png */,
+				0C9A281B1D3AA67F002BCDD3 /* Festival.png */,
+				0C9A281C1D3AA67F002BCDD3 /* Fiesta.png */,
+				0C9A281D1D3AA67F002BCDD3 /* Runner.png */,
+				0C9A281E1D3AA67F002BCDD3 /* Ryder.png */,
+				0C9A281F1D3AA67F002BCDD3 /* Seminario.png */,
+				0C9A28201D3AA67F002BCDD3 /* Social.png */,
+				0C9A28211D3AA67F002BCDD3 /* Teatro.png */,
 				0C4CB2AB1D3872DD003F686B /* like.png */,
 				0C4CB2A71D383577003F686B /* delete-user-outlined-interface-symbol.png */,
 				0C4CB2A81D383577003F686B /* internet.png */,
@@ -367,17 +403,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C6C3C271C8F483800B9D934 /* LaunchScreen.storyboard in Resources */,
+				0C9A28281D3AA67F002BCDD3 /* Fiesta.png in Resources */,
+				0C9A28251D3AA67F002BCDD3 /* Espectaculos.png in Resources */,
+				0C9A28291D3AA67F002BCDD3 /* Runner.png in Resources */,
+				0C9A282B1D3AA67F002BCDD3 /* Seminario.png in Resources */,
 				0CF2BA931D37200D00F202B7 /* eventyk_register.png in Resources */,
 				0C0ADAE11C8F5441004D8901 /* logo.png in Resources */,
 				0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */,
+				0C9A282C1D3AA67F002BCDD3 /* Social.png in Resources */,
+				0C9A28221D3AA67F002BCDD3 /* ArteyCultura.png in Resources */,
+				0C9A28241D3AA67F002BCDD3 /* Deportes.png in Resources */,
 				0C4CB2AA1D383577003F686B /* internet.png in Resources */,
 				0C6C872E1D36BA85000AD753 /* eventyk_login.png in Resources */,
+				0C9A282D1D3AA67F002BCDD3 /* Teatro.png in Resources */,
+				0C9A28261D3AA67F002BCDD3 /* Expo.png in Resources */,
+				0C9A282A1D3AA67F002BCDD3 /* Ryder.png in Resources */,
 				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
 				0C933A531D3814FF008489FA /* calendar.png in Resources */,
 				0C4CB2A91D383577003F686B /* delete-user-outlined-interface-symbol.png in Resources */,
 				0C4CB2AC1D3872DD003F686B /* like.png in Resources */,
+				0C9A28231D3AA67F002BCDD3 /* Cine.png in Resources */,
 				0C6C3C241C8F483800B9D934 /* Assets.xcassets in Resources */,
+				0C9A28271D3AA67F002BCDD3 /* Festival.png in Resources */,
 				0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
