@@ -271,4 +271,64 @@ class Provider {
             
         })
     }
+    
+    func getEventsFromLikehood(likehood: Preference,success: ([Event])->Void, failure: () -> Void){
+        
+        var eventList: [Event] = []
+        
+        let params = ["like": likehood.Nombre]
+        
+        Alamofire.request(.GET, "\(self.BaseURL)getEventsFromLikehood.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            
+            if let eventArray = response.result.value as? NSArray{
+                
+                
+                for i in eventArray{
+                    
+                    if let dict = i as? NSDictionary{
+                        
+                        if let idEvent = dict["idEvento"] as? String, name = dict["Nombre"] as? String, date = dict["Fecha"] as? String, hour = dict["Hora_inicio"] as? String, descrip = dict["Descripcion"] as? String, shortDescrip = dict["BreveDescripcion"] as? String, place = dict["Lugar"] as? String, pref = dict["Gusto_evento"] as? String, zone = dict["Zona"] as? String, type = dict["Tipo"] as? String, isDestacable = dict["esDestacado"] as? String, link = dict["Link_Evento"] as? String, image = dict["Imagen"] as? String, company = dict["NombreEmpresa"] as? String{
+                            
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+                            let flagDestacable = isDestacable == "1" ? true : false
+                            
+                            
+                            let prefs = self.realm.objects(Preference).filter("Nombre = %@",pref)
+                            
+                            let likeHood = prefs.first!
+                            
+                            let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
+                                                        
+                            //Por ahora no necesita participantes, el controlador se encarga
+                            event.setParticipants({
+                                try! self.realm.write({
+                                    self.realm.add(event, update: true)
+                                })
+                                
+                            })
+                            eventList.append(event)
+
+                        
+                    
+                        }
+                    
+
+                    }
+                
+                }
+            }
+            
+            if(eventList.count > 0){
+                success(eventList)
+            }else{
+                failure()
+            }
+            
+        })
+        
+    }
+    
+    
 }

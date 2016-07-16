@@ -43,6 +43,7 @@
 		0C9A282B1D3AA67F002BCDD3 /* Seminario.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A281F1D3AA67F002BCDD3 /* Seminario.png */; };
 		0C9A282C1D3AA67F002BCDD3 /* Social.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28201D3AA67F002BCDD3 /* Social.png */; };
 		0C9A282D1D3AA67F002BCDD3 /* Teatro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28211D3AA67F002BCDD3 /* Teatro.png */; };
+		0C9A282F1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */; };
 		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
@@ -120,6 +121,7 @@
 		0C9A281F1D3AA67F002BCDD3 /* Seminario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Seminario.png; path = Assets.xcassets/Seminario.png; sourceTree = "<group>"; };
 		0C9A28201D3AA67F002BCDD3 /* Social.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Social.png; path = Assets.xcassets/Social.png; sourceTree = "<group>"; };
 		0C9A28211D3AA67F002BCDD3 /* Teatro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teatro.png; path = Assets.xcassets/Teatro.png; sourceTree = "<group>"; };
+		0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodEventViewController.swift; sourceTree = "<group>"; };
 		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -197,6 +199,7 @@
 				0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */,
 				0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */,
 				0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */,
+				0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */,
 				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0CFCD5D71C9605E000BD878C /* User.swift */,
 				0CFCD5D91C96144900BD878C /* Preference.swift */,
@@ -619,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C9A282F1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift in Sources */,
 				0C4CB2B21D387BB9003F686B /* EVLikehoodViewController.swift in Sources */,
 				0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */,
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,

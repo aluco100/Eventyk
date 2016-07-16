@@ -21,6 +21,7 @@ class EVLikehoodViewController: UIViewController,UICollectionViewDelegate,UIColl
     //MARK: - Global Variables
     
     var likehood: [Preference] = []
+    var associatedLikehood: Preference? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,16 +116,34 @@ class EVLikehoodViewController: UIViewController,UICollectionViewDelegate,UIColl
         
         print(self.likehood[atIndex])
         
+        self.associatedLikehood = self.likehood[atIndex]
+        
+        self.performSegueWithIdentifier("likehoodEventSegue", sender: self)
+        
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "likehoodEventSegue"){
+            
+            if let destination = segue.destinationViewController as? EVLikehoodEventViewController{
+                
+                destination.likehood = self.associatedLikehood
+                
+            }
+            
+        }
+        
     }
-    */
-
+    
+    //MARK: - IBActions
+    
+    @IBAction func logout(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    
 }
