@@ -46,7 +46,9 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                 print("Events:  \(events)")
                 for i in events{
                     //append events
-                    self.eventsStorage.append(i)
+                    if(i.Likehood!.Chosen){
+                        self.eventsStorage.append(i)
+                    }
                 }
                 self.eventTableView.reloadData()
             }else{
@@ -57,7 +59,9 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                     print("Events: \(events)")
                     
                     for i in events{
-                        self.eventsStorage.append(i)
+                        if(i.Likehood!.Chosen){
+                            self.eventsStorage.append(i)
+                        }
                     }
                     self.eventTableView.reloadData()
                 })
