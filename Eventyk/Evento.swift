@@ -65,16 +65,23 @@ public class Event: Object{
         let provider = Provider()
         provider.getEventParticipants(self.getId(), success: {
             names in
+            
+            self.Participants = List<Friend>()
+            
             for i in names{
                 print("Name: \(i)")
-                self.Participants.append(i)
+                let realm = try! Realm()
+                
+                try! realm.write({
+                    self.Participants.append(i)
+                    realm.add(self, update: true)
+                })
+                
             }
             success()
         })
     }
-    
-    //MARK: - Main Methods
-    
+        
     
     //MARK: - REALM Methods
     

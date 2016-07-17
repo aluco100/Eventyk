@@ -116,7 +116,7 @@ class Provider {
                             if let city = data["Ciudad"] as? String{
                                 
                                 userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city)
-                                
+                                userData.Logged = true
                                 //TODO: set preferences
                                 userData.setUserPreferences({
                                     
@@ -207,6 +207,31 @@ class Provider {
         })
     }
     
+    //MARK: - Asist To Event
+    
+    func AsistToEvent(user:User,event: Event, success:()->Void){
+        
+        let params = ["idUser":user.getId(),
+                      "idEvent":event.getId()]
+        
+        Alamofire.request(.POST, "\(self.BaseURL)asistToEvent.php", parameters: params).responseJSON(completionHandler: {
+            response in
+            
+            print(response.result.value)
+            
+            let arr = response.result.value as! NSDictionary
+            
+            let answer = arr["Result"] as! String
+            
+            if(answer == "Ok"){
+                success()
+            }
+            
+                        
+        })
+        
+    }
+    
     //MARK: - Get Event Participants
     
     internal func getEventParticipants(id: String,success:(List<Friend>)->Void){
@@ -261,6 +286,7 @@ class Provider {
                     let name = dict["Nombre"] as! String
                     let email = dict["email"] as! String
                     let user = User(identificator: id, email: email, pass: "", name: name, birthdate: NSDate(), friendlist: [], gustos: [], city: "")
+                    user.Logged = true
                     try! self.realm.write({
                         self.realm.add(user, update: true)
                         completion(user: user)

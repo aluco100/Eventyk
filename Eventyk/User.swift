@@ -19,6 +19,7 @@ public class User: Object {
     private var Friends: [Friend] = []
     private var Gustos: [Preference] = []
     public dynamic var City: String = ""
+    public dynamic var Logged: Bool = false
     
     convenience init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [Friend],gustos: [Preference], city: String){
         

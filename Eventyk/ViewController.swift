@@ -37,7 +37,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
         self.passTextField.delegate = self
         
         //MARK: - Gesture Settings
-        let textFieldGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        let textFieldGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.hideKeyboard))
         self.view.addGestureRecognizer(textFieldGesture)
         
         //MARK: - ProgressHud Settings
@@ -255,11 +255,11 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                         print("accion")
                         if(self.fbFlag){
                             print("accion")
-                            destination.User = self.fbUser
+                            destination.Usuario = self.fbUser
                             destination.Mail = self.fbMail
                             destination.flagFB = true
                         }else{
-                            destination.User = self.User
+                            destination.Usuario = self.User
                             destination.Pass = self.Pass
                             destination.flagFB = false
                         }

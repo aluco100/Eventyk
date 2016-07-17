@@ -207,6 +207,50 @@
             </objects>
             <point key="canvasLocation" x="1867" y="-1160"/>
         </scene>
+        <!--Participants View Controller-->
+        <scene sceneID="v7f-fK-UVV">
+            <objects>
+                <viewController id="tIY-jJ-PdY" customClass="EVParticipantsViewController" customModule="Eventyk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yOc-dI-UkF"/>
+                        <viewControllerLayoutGuide type="bottom" id="OY7-H5-VKX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q1w-a8-rRK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sa1-dI-pmu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <color key="backgroundColor" red="1" green="0.6505768895149231" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="participantsIdentifier" rowHeight="80" id="XbJ-Za-oNg">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XbJ-Za-oNg" id="eF1-P8-Odc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.6505768895149231" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OY7-H5-VKX" firstAttribute="top" secondItem="sa1-dI-pmu" secondAttribute="bottom" id="IJv-bv-3V7"/>
+                            <constraint firstAttribute="trailing" secondItem="sa1-dI-pmu" secondAttribute="trailing" id="Pys-QU-HNy"/>
+                            <constraint firstItem="sa1-dI-pmu" firstAttribute="top" secondItem="Q1w-a8-rRK" secondAttribute="top" id="Tqa-S8-Fwr"/>
+                            <constraint firstItem="sa1-dI-pmu" firstAttribute="leading" secondItem="Q1w-a8-rRK" secondAttribute="leading" id="cXm-Ec-OYS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="participantsTableView" destination="sa1-dI-pmu" id="Ba5-f2-AYu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AnK-Qb-6Eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3491" y="-1195"/>
+        </scene>
         <!--Eventyk-->
         <scene sceneID="WW9-2c-vmD">
             <objects>
@@ -230,6 +274,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="326.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-Mr-Fz2">
+                                                    <rect key="frame" x="8" y="8.5" width="584" height="310.5"/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuF-cE-avz">
                                                     <rect key="frame" x="8" y="8" width="584" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -273,9 +320,6 @@
                                                         <action selector="seeMore:" destination="iz2-Vf-q6u" eventType="touchUpInside" id="IMg-Bn-ndH"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TeG-Mr-Fz2">
-                                                    <rect key="frame" x="8" y="8" width="584" height="310.5"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="JsU-up-txd" secondAttribute="bottom" constant="14.5" id="4lK-Ov-TsI"/>
@@ -307,6 +351,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="asistButton" destination="tEh-so-slC" id="xXV-0Q-qOi"/>
                                             <outlet property="dateEvent" destination="0Rt-fJ-ZFQ" id="fnh-cw-jT2"/>
                                             <outlet property="imageEvent" destination="TeG-Mr-Fz2" id="kRJ-SP-1QJ"/>
                                             <outlet property="titleEvent" destination="KuF-cE-avz" id="2kX-iL-tZZ"/>
@@ -338,6 +383,7 @@
                     <connections>
                         <outlet property="eventTableView" destination="bqG-sL-zTW" id="Eom-8g-QH4"/>
                         <segue destination="xj0-Z3-dEg" kind="show" identifier="detailsSegue" id="J46-1U-uYD"/>
+                        <segue destination="tIY-jJ-PdY" kind="show" identifier="participantsSegue" id="gqu-uH-OcO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ueD-fz-Woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1032,6 +1078,6 @@
         <image name="register" width="1125" height="1646"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zLm-Cy-lXN"/>
+        <segue reference="J46-1U-uYD"/>
     </inferredMetricsTieBreakers>
 </document>

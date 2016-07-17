@@ -59,8 +59,18 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         self.likeHoodTableView.reloadData()
         
         //Load User Data
-        //TODO: agregar la propiedad de logged
-        user = realm.objects(User).first
+        let users = realm.objects(User)
+        
+        for i in users{
+            
+            if(i.Logged){
+                
+                self.user = i
+                break
+                
+            }
+            
+        }
         
         //Username textfield settings
         self.profileUserName.placeholder = user!.Name
@@ -188,9 +198,7 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         provider.updateUserData(user!.getId(), user: userProfile!, mail: mailProfile!, date: birthdayProfile!, success: {
             
             let realm = try! Realm()
-            
-            //TODO: Ver tema con el logged
-            
+                        
             try! realm.write({
                 
                 self.user?.Name = userProfile!

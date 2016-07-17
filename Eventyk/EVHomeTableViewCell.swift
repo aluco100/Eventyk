@@ -21,6 +21,7 @@ class EVHomeTableViewCell: UITableViewCell {
     @IBOutlet var imageEvent: UIImageView!
     @IBOutlet var titleEvent: UILabel!
     @IBOutlet var dateEvent: UILabel!
+    @IBOutlet var asistButton: UIButton!
     
     //MARK: - Global Variables
     
@@ -48,6 +49,7 @@ class EVHomeTableViewCell: UITableViewCell {
         //code
         if let delegate = self.delegate{
             delegate.asistToEvent(index!)
+            self.asistButton.enabled = false
         }
     }
     

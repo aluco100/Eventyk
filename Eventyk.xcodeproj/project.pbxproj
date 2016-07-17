@@ -48,6 +48,7 @@
 		0CCAF2391D3BE0F20083438C /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCAF2381D3BE0F20083438C /* users.png */; };
 		0CCAF23B1D3BE6430083438C /* EVProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAF23A1D3BE6430083438C /* EVProfileViewController.swift */; };
 		0CCAF23D1D3BF2240083438C /* EVProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAF23C1D3BF2240083438C /* EVProfileTableViewCell.swift */; };
+		0CCAF2431D3C37EB0083438C /* EVParticipantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAF2421D3C37EB0083438C /* EVParticipantsViewController.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
 		0CF2BA931D37200D00F202B7 /* eventyk_register.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2BA921D37200D00F202B7 /* eventyk_register.png */; };
@@ -129,6 +130,7 @@
 		0CCAF2381D3BE0F20083438C /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = users.png; path = Assets.xcassets/users.png; sourceTree = "<group>"; };
 		0CCAF23A1D3BE6430083438C /* EVProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVProfileViewController.swift; sourceTree = "<group>"; };
 		0CCAF23C1D3BF2240083438C /* EVProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVProfileTableViewCell.swift; sourceTree = "<group>"; };
+		0CCAF2421D3C37EB0083438C /* EVParticipantsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVParticipantsViewController.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0CF2BA921D37200D00F202B7 /* eventyk_register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventyk_register.png; path = Assets.xcassets/eventyk_register.png; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				0C6C3C1E1C8F483800B9D934 /* ViewController.swift */,
 				0C4109961C9B156000968DE2 /* EVHomeViewController.swift */,
 				0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */,
+				0CCAF2421D3C37EB0083438C /* EVParticipantsViewController.swift */,
 				0C8C56E61D1EFC5000C683FB /* EVDetailsViewController.swift */,
 				0C0ADAE41C8F7B24004D8901 /* EVRegisterViewController.swift */,
 				0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */,
@@ -639,6 +642,7 @@
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
 				0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */,
 				0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */,
+				0CCAF2431D3C37EB0083438C /* EVParticipantsViewController.swift in Sources */,
 				0C8C56E71D1EFC5000C683FB /* EVDetailsViewController.swift in Sources */,
 				0CFCD5D81C9605E000BD878C /* User.swift in Sources */,
 				0C4109971C9B156000968DE2 /* EVHomeViewController.swift in Sources */,

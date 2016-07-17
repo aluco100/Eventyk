@@ -8,11 +8,11 @@
 
 import UIKit
 import RealmSwift
-import SwiftCarousel
+import MBProgressHUD
 class EVHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,EVHomeTableViewCellDelegate{
 
     //MARK: - Global Variables
-    var User: String = ""
+    var Usuario: String = ""
     var Mail: String = ""
     var Pass: String = ""
     var flagFB: Bool = false
@@ -21,6 +21,10 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
     
     var selectedEvent: Event? = nil
     var selectedLikehood: String? = nil
+    var relatedUser: User? = nil
+    var associatedFriends: [Friend] = []
+    
+    var homeHUD: MBProgressHUD? = nil
     
     //MARK: - Outlet Variables
     
@@ -29,12 +33,80 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("User: \(self.User) mail: \(self.Mail) flag: \(flagFB)")
+        print("User: \(self.Usuario) mail: \(self.Mail) flag: \(flagFB)")
+        
+        //MARK: - Facebook
+        
+        if(self.flagFB){
+            print("hola")
+            let provider = Provider()
+            provider.getUserDataFromFacebook(self.Mail, completion: {
+                user in
+                self.relatedUser = user
+                
+                print("User from fb: \(user)")
+                self.eventTableView.reloadData()
+                
+            })
+        }else{
+            
+            let provider = Provider()
+            provider.getUserData(self.Usuario, pass: self.Pass, success: {
+                user in
+                
+                self.relatedUser = user
+                
+                print("User from registration: \(user)")
+                self.eventTableView.reloadData()
+
+            })
+        }
+        
+        
+        //MARK: - Initial event by default
+        
+        self.selectedEvent = self.eventsStorage.first
+        
+        //MARK: - TableView Settings
+        
+        self.eventTableView.delegate = self
+        self.eventTableView.dataSource = self
+        self.eventTableView.separatorColor = UIColor.orangeColor()
+        
+        //MARK: - navBar settings
+        
+        self.navigationController?.navigationBar.barStyle = .Black
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        //Home HUD Settings
+        
+        self.homeHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        self.homeHUD?.mode = .Indeterminate
+        
+        self.homeHUD?.labelText = "Cargando"
+        
+        self.homeHUD?.hidden = true
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         
         let realm = try! Realm()
         
-        
         //MARK: - Event Management
+        
+        self.eventsStorage = []
         
         getPrefs({
             let events = realm.objects(Event)
@@ -69,55 +141,6 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
             }
             
         })
-        
-        //MARK: - Facebook
-        
-        if(self.flagFB){
-            print("hola")
-            let provider = Provider()
-            provider.getUserDataFromFacebook(self.Mail, completion: {
-                user in
-                print("User from fb: \(user)")
-                
-            })
-        }else{
-            
-            let provider = Provider()
-            provider.getUserData(self.User, pass: self.Pass, success: {
-                user in
-                print("User from registration: \(user)")
-            })
-        }
-        
-        
-        //MARK: - Initial event by default
-        
-        self.selectedEvent = self.eventsStorage.first
-        
-        //MARK: - TableView Settings
-        
-        self.eventTableView.delegate = self
-        self.eventTableView.dataSource = self
-        self.eventTableView.separatorColor = UIColor.orangeColor()
-        self.eventTableView.reloadData()
-        
-        //MARK: - navBar settings
-        
-        self.navigationController?.navigationBar.barStyle = .Black
-        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
-        self.navigationController?.navigationBar.backgroundColor = UIColor.orangeColor()
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
     
     
@@ -161,6 +184,14 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell.delegate = self
         
+        //Button
+        
+        for i in self.eventsStorage[indexPath.row].getParticipants(){
+            if(i.getId() == self.relatedUser!.getId()){
+                cell.asistButton.enabled = false
+            }
+        }
+        
         return cell
     }
     
@@ -173,11 +204,41 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func asistToEvent(eventAtIndex: Int) {
+        
+        self.homeHUD?.hidden = false
+        
         self.selectedEvent = self.eventsStorage[eventAtIndex]
+        
+        let provider = Provider()
+        
+        provider.AsistToEvent(self.relatedUser!, event: self.selectedEvent!, success: {
+            self.homeHUD?.hidden = true
+                        
+            self.selectedEvent?.setParticipants({
+                
+            })
+        })
+        
     }
     
     func seeAsistPeople(eventAtIndex: Int) {
+        
         self.selectedEvent = self.eventsStorage[eventAtIndex]
+        self.associatedFriends = []
+        
+        let provider = Provider()
+        
+        provider.getEventParticipants(self.selectedEvent!.getId(), success: {
+            friends in
+            
+            for i in friends{
+                self.associatedFriends.append(i)
+            }
+            
+            self.performSegueWithIdentifier("participantsSegue", sender: self)
+            
+        })
+        
     }
     
     
@@ -220,6 +281,12 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                 if(self.selectedEvent != nil){
                     destination.associatedEvent = self.selectedEvent
                 }
+            }
+        }else if(segue.identifier == "participantsSegue"){
+            if let destination = segue.destinationViewController as? EVParticipantsViewController{
+                
+                destination.participants = self.associatedFriends
+                
             }
         }
      }

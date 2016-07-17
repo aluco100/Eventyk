@@ -14,7 +14,7 @@ public class Friend: Object {
     public dynamic var Name: String = ""
     
     convenience init(id:String, name: String){
-        self.init(id:id,name:name)
+        self.init()
         self.Id = id
         self.Name = name
     }
