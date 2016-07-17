@@ -330,5 +330,20 @@ class Provider {
         
     }
     
+    func updateUserData(id: String,user:String,mail:String, date: String, success:()->Void){
+        
+        let params = ["username":user,
+                      "mail":mail,
+                      "birthdate":date,
+                      "id":id]
+        
+        Alamofire.request(.GET, "\(self.BaseURL)updateUserData.php", parameters: params).responseJSON(completionHandler: {
+            
+            response in
+                        
+            success()
+        })
+        
+    }
     
 }

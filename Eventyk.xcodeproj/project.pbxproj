@@ -45,6 +45,9 @@
 		0C9A282D1D3AA67F002BCDD3 /* Teatro.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9A28211D3AA67F002BCDD3 /* Teatro.png */; };
 		0C9A282F1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */; };
 		0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */; };
+		0CCAF2391D3BE0F20083438C /* users.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCAF2381D3BE0F20083438C /* users.png */; };
+		0CCAF23B1D3BE6430083438C /* EVProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAF23A1D3BE6430083438C /* EVProfileViewController.swift */; };
+		0CCAF23D1D3BF2240083438C /* EVProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCAF23C1D3BF2240083438C /* EVProfileTableViewCell.swift */; };
 		0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD9BFBF1C9777E90012F434 /* Friend.swift */; };
 		0CECEA101D1CCDC40008CA2A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */; };
 		0CF2BA931D37200D00F202B7 /* eventyk_register.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF2BA921D37200D00F202B7 /* eventyk_register.png */; };
@@ -123,6 +126,9 @@
 		0C9A28211D3AA67F002BCDD3 /* Teatro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teatro.png; path = Assets.xcassets/Teatro.png; sourceTree = "<group>"; };
 		0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodEventViewController.swift; sourceTree = "<group>"; };
 		0C9C75621CA216030011571C /* EVHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVHomeTableViewCell.swift; sourceTree = "<group>"; };
+		0CCAF2381D3BE0F20083438C /* users.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = users.png; path = Assets.xcassets/users.png; sourceTree = "<group>"; };
+		0CCAF23A1D3BE6430083438C /* EVProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVProfileViewController.swift; sourceTree = "<group>"; };
+		0CCAF23C1D3BF2240083438C /* EVProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVProfileTableViewCell.swift; sourceTree = "<group>"; };
 		0CD9BFBF1C9777E90012F434 /* Friend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		0CECEA0F1D1CCDC40008CA2A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0CF2BA921D37200D00F202B7 /* eventyk_register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eventyk_register.png; path = Assets.xcassets/eventyk_register.png; sourceTree = "<group>"; };
@@ -200,6 +206,8 @@
 				0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */,
 				0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */,
 				0C9A282E1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift */,
+				0CCAF23A1D3BE6430083438C /* EVProfileViewController.swift */,
+				0CCAF23C1D3BF2240083438C /* EVProfileTableViewCell.swift */,
 				0C0ADADA1C8F4A62004D8901 /* Provider.swift */,
 				0CFCD5D71C9605E000BD878C /* User.swift */,
 				0CFCD5D91C96144900BD878C /* Preference.swift */,
@@ -237,6 +245,7 @@
 		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0CCAF2381D3BE0F20083438C /* users.png */,
 				0C9A28161D3AA67F002BCDD3 /* ArteyCultura.png */,
 				0C9A28171D3AA67F002BCDD3 /* Cine.png */,
 				0C9A28181D3AA67F002BCDD3 /* Deportes.png */,
@@ -415,6 +424,7 @@
 				0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */,
 				0C9A282C1D3AA67F002BCDD3 /* Social.png in Resources */,
 				0C9A28221D3AA67F002BCDD3 /* ArteyCultura.png in Resources */,
+				0CCAF2391D3BE0F20083438C /* users.png in Resources */,
 				0C9A28241D3AA67F002BCDD3 /* Deportes.png in Resources */,
 				0C4CB2AA1D383577003F686B /* internet.png in Resources */,
 				0C6C872E1D36BA85000AD753 /* eventyk_login.png in Resources */,
@@ -625,6 +635,7 @@
 				0C9A282F1D3AB663002BCDD3 /* EVLikehoodEventViewController.swift in Sources */,
 				0C4CB2B21D387BB9003F686B /* EVLikehoodViewController.swift in Sources */,
 				0C0ADAE51C8F7B24004D8901 /* EVRegisterViewController.swift in Sources */,
+				0CCAF23B1D3BE6430083438C /* EVProfileViewController.swift in Sources */,
 				0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */,
 				0C9C75631CA216030011571C /* EVHomeTableViewCell.swift in Sources */,
 				0C0ADADB1C8F4A62004D8901 /* Provider.swift in Sources */,
@@ -634,6 +645,7 @@
 				0CFCD5DA1C96144900BD878C /* Preference.swift in Sources */,
 				0CFCD5DC1C961C5A00BD878C /* Evento.swift in Sources */,
 				0C4CB2B01D387AEA003F686B /* EVLikehoodCollectionViewCell.swift in Sources */,
+				0CCAF23D1D3BF2240083438C /* EVProfileTableViewCell.swift in Sources */,
 				0CD9BFC01C9777E90012F434 /* Friend.swift in Sources */,
 				0CFCD5DE1C96216500BD878C /* Recomendation.swift in Sources */,
 				0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */,
