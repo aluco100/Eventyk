@@ -56,14 +56,14 @@ class EVRegisterViewController: UIViewController,UITextFieldDelegate,UIPickerVie
         toolBar.translucent = true
         toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
         toolBar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(EVRegisterViewController.donePicker))
         toolBar.setItems([doneButton], animated: false)
         toolBar.userInteractionEnabled = true
         self.cityTextField.inputAccessoryView = toolBar
         
         //birthdate settings
         self.birthdatePicker = UIDatePicker(frame: CGRectMake(0, 200, view.frame.width, 300))
-        self.birthdatePicker.addTarget(self, action: "birthdateChanged", forControlEvents: .ValueChanged)
+        self.birthdatePicker.addTarget(self, action: #selector(EVRegisterViewController.birthdateChanged), forControlEvents: .ValueChanged)
         self.birthdatePicker.datePickerMode = .Date
         self.birthTextField.inputView = self.birthdatePicker
         self.birthTextField.inputAccessoryView = toolBar

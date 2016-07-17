@@ -36,6 +36,9 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         //Profile View Style
         
         self.profileView.layer.cornerRadius = 15.0
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
+        self.navigationController?.navigationBar.barStyle = .Black
         
         //Load Preferences
         
@@ -105,6 +108,10 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     //MARK: - Table View Delegate
@@ -200,5 +207,9 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-
+    @IBAction func logout(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    
 }

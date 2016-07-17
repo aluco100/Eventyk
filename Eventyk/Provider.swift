@@ -88,6 +88,7 @@ class Provider {
         
     }
     
+    //MARK: - Get User Data
     
     internal func getUserData(mail: String, pass: String,success: (User) -> Void){
         let params = ["user": mail, "pass": pass]
@@ -139,9 +140,10 @@ class Provider {
         
     }
     
+    //MARK: - Get User Preferences
+    
     internal func getUserPreferences(relatedUser: User, success: ([Preference])->Void){
         
-        //TODO: actualizar con Realm
         var prefs:[Preference] = []
         
         let params = ["idUser":relatedUser.getId()]
@@ -162,8 +164,9 @@ class Provider {
         })
     }
     
+    //MARK: - Get Events
+    
     internal func getEvents(limit: Int,success: ([Event])->Void){
-        //TODO: actualizar con Realm
         var eventList: [Event] = []
         
         let params = ["limit": limit]
@@ -204,6 +207,8 @@ class Provider {
         })
     }
     
+    //MARK: - Get Event Participants
+    
     internal func getEventParticipants(id: String,success:(List<Friend>)->Void){
         
         let names = List<Friend>()
@@ -227,6 +232,8 @@ class Provider {
         
     }
     
+    //MARK: - Register From Facebook
+    
     internal func registerFromFacebook(name: String, email: String, success:()->Void){
         let params = ["name":name,"user":email]
         
@@ -237,6 +244,8 @@ class Provider {
         })
         
     }
+    
+    //MARK: - Get User Data From Facebook
     
     internal func getUserDataFromFacebook(email: String, completion: (user: User)->Void){
         
@@ -271,6 +280,8 @@ class Provider {
             
         })
     }
+    
+    //MARK: - Get Events From Likehood
     
     func getEventsFromLikehood(likehood: Preference,success: ([Event])->Void, failure: () -> Void){
         
@@ -329,6 +340,8 @@ class Provider {
         })
         
     }
+    
+    //MARK: - Update User Data
     
     func updateUserData(id: String,user:String,mail:String, date: String, success:()->Void){
         
