@@ -31,35 +31,22 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //MARK: - Textfield Settings
+        //Textfield Settings
         self.userTextField.delegate = self
         self.userTextField.keyboardType = .EmailAddress
         self.passTextField.delegate = self
         
-        //MARK: - Gesture Settings
+        //Gesture Settings
         let textFieldGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.hideKeyboard))
         self.view.addGestureRecognizer(textFieldGesture)
         
-        //MARK: - ProgressHud Settings
+        //ProgressHud Settings
         hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         hud.mode = .Indeterminate
         hud.labelText = "Cargando"
         hud.hidden = true
         
-        //MARK: - Facebook Settings
-        if (FBSDKAccessToken.currentAccessToken() != nil)
-        {
-            // User is already logged in, do work such as go to next view controller.
-            returnUserData({
-                self.performSegueWithIdentifier("loginSigninSegue", sender: self)
-            })
-            
-        }else{
-            self.fbLogin.readPermissions = ["public_profile", "email", "user_friends"]
-            self.fbLogin.delegate = self
-        }
-        
-        //MARK: - Keyboard's Toolbar
+        //Keyboard's Toolbar
         
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
         toolbar.barStyle = .Default
@@ -124,18 +111,6 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     
     //MARK: - TextField Delegate
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        //TODO: Hacer que funcione el pop
-        
-        let animation:POPSpringAnimation = POPSpringAnimation(propertyNamed: "kPOPViewScaleXY")
-        animation.toValue = NSValue(CGPoint: CGPoint(x: 1, y: 1))
-        animation.velocity = NSValue(CGPoint: CGPoint(x: 2, y: 2))
-        animation.springBounciness = 20
-        textField.pop_addAnimation(animation, forKey: "scaleUp")
-        
-    }
-    
     func textFieldDidEndEditing(textField: UITextField) {
         
         textField.resignFirstResponder()
@@ -147,16 +122,10 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     
     @IBAction func SignIn(sender: AnyObject) {
         
-        /*
-        ############################################
-        default user: admin@eventyk.com
-        default pass: alt001
-        ############################################
-        */
-        
         hud.hidden = false
         
         let provider = Provider()
+        
         provider.getPreferences({
             preferences in
             provider.signIn(self.userTextField.text!, pass: self.passTextField.text!, success: {
@@ -169,7 +138,6 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
                 self.performSegueWithIdentifier("loginSigninSegue", sender: self)
                 
                 }, failure: {
-                    //TODO: hacer que el pop funcione
                     print("access denied")
                     self.hud.hidden = true
                     
@@ -185,6 +153,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
     @IBAction func goToRegister(sender: AnyObject) {
         self.performSegueWithIdentifier("registerSegue", sender: self)
     }
+    
     
     //MARK: - Events Methods
     func hideKeyboard(){
@@ -252,9 +221,7 @@ class ViewController: UIViewController,UITextFieldDelegate,FBSDKLoginButtonDeleg
             if let barViewControllers = segue.destinationViewController as? UITabBarController{
                 if let navContr = barViewControllers.viewControllers![0] as? UINavigationController{
                     if let destination = navContr.viewControllers[0] as? EVHomeViewController{
-                        print("accion")
                         if(self.fbFlag){
-                            print("accion")
                             destination.Usuario = self.fbUser
                             destination.Mail = self.fbMail
                             destination.flagFB = true

@@ -27,7 +27,8 @@ public class Event: Object{
     public dynamic var imageNamed: String = ""
     
     convenience init(identificator: String,name: String, date: NSDate, descrip : String, shortDescrip: String, place: String, zone: String, type: String, isDestacable: Bool, company: String, link: String, likehood: Preference, image: String){
-//        self.init(identificator: identificator, name: name, date: date, visitors: visitors, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: isDestacable, company: company, link: link, likehood: likehood, image: image)
+
+        
         self.init()
         self.Id = identificator
         self.Name = name
@@ -66,19 +67,17 @@ public class Event: Object{
         provider.getEventParticipants(self.getId(), success: {
             names in
             
-            self.Participants = List<Friend>()
+            print(names)
             
-            for i in names{
-                print("Name: \(i)")
-                let realm = try! Realm()
-                
-                try! realm.write({
-                    self.Participants.append(i)
-                    realm.add(self, update: true)
-                })
-                
-            }
-            success()
+            let realm = try! Realm()
+            
+            
+            try! realm.write({
+                self.Participants = names
+                realm.add(self, update: true)
+                success()
+            
+            })
         })
     }
         

@@ -67,4 +67,6 @@ public class User: Object {
     override public static func primaryKey() -> String? {
         return "UserId"
     }
+    
+    
 }

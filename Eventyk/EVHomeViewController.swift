@@ -12,38 +12,35 @@ import MBProgressHUD
 class EVHomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,EVHomeTableViewCellDelegate{
 
     //MARK: - Global Variables
+    
     var Usuario: String = ""
     var Mail: String = ""
     var Pass: String = ""
     var flagFB: Bool = false
-    
     var eventsStorage:[Event] = []
-    
     var selectedEvent: Event? = nil
     var selectedLikehood: String? = nil
     var relatedUser: User? = nil
     var associatedFriends: [Friend] = []
-    
     var homeHUD: MBProgressHUD? = nil
+    var homeEventsManager: eventManager = eventManager()
     
     //MARK: - Outlet Variables
     
     @IBOutlet var eventTableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("User: \(self.Usuario) mail: \(self.Mail) flag: \(flagFB)")
-        
-        //MARK: - Facebook
+        //Facebook
         
         if(self.flagFB){
-            print("hola")
             let provider = Provider()
             provider.getUserDataFromFacebook(self.Mail, completion: {
                 user in
-                self.relatedUser = user
                 
+                self.relatedUser = user
                 print("User from fb: \(user)")
                 self.eventTableView.reloadData()
                 
@@ -55,7 +52,6 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
                 user in
                 
                 self.relatedUser = user
-                
                 print("User from registration: \(user)")
                 self.eventTableView.reloadData()
 
@@ -63,17 +59,13 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         
-        //MARK: - Initial event by default
-        
-        self.selectedEvent = self.eventsStorage.first
-        
-        //MARK: - TableView Settings
+        //TableView Settings
         
         self.eventTableView.delegate = self
         self.eventTableView.dataSource = self
         self.eventTableView.separatorColor = UIColor.orangeColor()
         
-        //MARK: - navBar settings
+        //navBar settings
         
         self.navigationController?.navigationBar.barStyle = .Black
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
@@ -83,62 +75,32 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         //Home HUD Settings
         
         self.homeHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
         self.homeHUD?.mode = .Indeterminate
-        
         self.homeHUD?.labelText = "Cargando"
-        
         self.homeHUD?.hidden = true
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
+    //MARK: - Load Events Management
+    
     override func viewDidAppear(animated: Bool) {
         
-        let realm = try! Realm()
+        self.homeHUD?.hidden = false
         
-        //MARK: - Event Management
-        
-        self.eventsStorage = []
-        
-        getPrefs({
-            let events = realm.objects(Event)
-            let provider = Provider()
+        self.homeEventsManager.getEvents({
+            events in
             
-            if(events.count > 0){
-                //return events
-                print("Ya tengo")
-                print("Events:  \(events)")
-                for i in events{
-                    //append events
-                    if(i.Likehood!.Chosen){
-                        self.eventsStorage.append(i)
-                    }
-                }
-                self.eventTableView.reloadData()
-            }else{
-                
-                provider.getEvents(10, success: {
-                    events in
-                    print("No tengo")
-                    print("Events: \(events)")
-                    
-                    for i in events{
-                        if(i.Likehood!.Chosen){
-                            self.eventsStorage.append(i)
-                        }
-                    }
-                    self.eventTableView.reloadData()
-                })
-                
-            }
+            self.eventsStorage = events
+            self.homeHUD?.hidden = true
+            self.eventTableView.reloadData()
             
         })
     }
@@ -184,10 +146,11 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         cell.delegate = self
         
         //Button
-        
+                
         for i in self.eventsStorage[indexPath.row].getParticipants(){
             if(i.getId() == self.relatedUser!.getId()){
                 cell.asistButton.enabled = false
+                break
             }
         }
         
@@ -247,41 +210,21 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    
-    //MARK: - Other Methods
-    func getPrefs(success:()->Void){
-        let realm = try! Realm()
-        
-        let prefs = realm.objects(Preference)
-        
-        if(prefs.count > 0){
-            //return preferences
-            print("Preferences: \(prefs)")
-            success()
-        }else{
-            let provider = Provider()
-            provider.getPreferences({
-                prefs in
-                print("Preferences: \(prefs)")
-                success()
-            })
-        }
-
-    }
-    
-     // MARK: - Navigation
+    // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        
         if(segue.identifier == "detailsSegue"){
+            
             if let destination = segue.destinationViewController as? EVDetailsViewController{
+                
                 if(self.selectedEvent != nil){
                     destination.associatedEvent = self.selectedEvent
                 }
+                
             }
         }else if(segue.identifier == "participantsSegue"){
+            
             if let destination = segue.destinationViewController as? EVParticipantsViewController{
                 
                 destination.participants = self.associatedFriends
