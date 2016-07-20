@@ -174,7 +174,6 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         let formatter = NSDateFormatter()
         formatter.locale = NSLocale.systemLocale()
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.dateStyle = .FullStyle
         
         cell.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
         

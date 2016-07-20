@@ -621,6 +621,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="asistButton" destination="8uU-n7-KYy" id="XZI-aB-Zes"/>
                                             <outlet property="dateEvent" destination="17Z-TQ-3kf" id="DJm-Gz-HxQ"/>
                                             <outlet property="imageEvent" destination="2WH-Zn-6pz" id="Wbb-0l-KPx"/>
                                             <outlet property="titleEvent" destination="ADs-J5-fyx" id="uNi-Az-emz"/>
@@ -652,6 +653,7 @@
                     <connections>
                         <outlet property="likehoodEventTableView" destination="HfM-Ul-oob" id="OWL-Cc-zxn"/>
                         <segue destination="xj0-Z3-dEg" kind="show" identifier="seeMoreSegue" id="zLm-Cy-lXN"/>
+                        <segue destination="tIY-jJ-PdY" kind="show" identifier="seeAsistPeopleSegue" id="a3O-H2-Tr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTq-cu-28Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -858,7 +860,7 @@
                                 <color key="backgroundColor" red="1" green="0.6505768895149231" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileIdentifier" rowHeight="50" id="XOh-NE-vOa" customClass="EVProfileTableViewCell" customModule="Eventyk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="50"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XOh-NE-vOa" id="svJ-Kz-WXF">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
@@ -1078,6 +1080,7 @@
         <image name="register" width="1125" height="1646"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J46-1U-uYD"/>
+        <segue reference="zLm-Cy-lXN"/>
+        <segue reference="a3O-H2-Tr9"/>
     </inferredMetricsTieBreakers>
 </document>

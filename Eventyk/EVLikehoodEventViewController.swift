@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+import MBProgressHUD
 
 class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, EVHomeTableViewCellDelegate {
 
@@ -21,6 +23,12 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
     var eventsStorage: [Event] = []
     
     var associatedEvent: Event? = nil
+    
+    var associatedFriends: [Friend] = []
+    
+    var relatedUser: User? = nil
+    
+    var likehoodEventHUD: MBProgressHUD? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +60,30 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
                 
         })
         
+        //Load  the user
         
+        let realm = try! Realm()
+        
+        let users = realm.objects(User)
+        
+        for i in users{
+            
+            if(i.Logged){
+                self.relatedUser = i
+                self.likehoodEventTableView.reloadData()
+                break
+            }
+            
+        }
+        
+        print(self.relatedUser)
+        
+        //HUD Settings
+        
+        self.likehoodEventHUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        self.likehoodEventHUD?.mode = .Indeterminate
+        self.likehoodEventHUD?.labelText = "Cargando"
+        self.likehoodEventHUD?.hidden = true
         
         
     }
@@ -101,6 +132,14 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
         
         cell!.delegate = self
         
+        //Button
+        
+        for i in self.eventsStorage[indexPath.row].getParticipants(){
+            if(i.getId() == self.relatedUser!.getId()){
+                cell!.asistButton.enabled = false
+            }
+        }
+        
         return cell!
 
     }
@@ -108,11 +147,42 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
     //MARK: - Custom Table View Cell Delegate
     
     func asistToEvent(eventAtIndex: Int) {
-        //code
+        
+        self.likehoodEventHUD?.hidden = false
+        
+        self.associatedEvent = self.eventsStorage[eventAtIndex]
+        
+        let provider = Provider()
+        
+        provider.AsistToEvent(self.relatedUser!, event: self.associatedEvent!, success: {
+            self.likehoodEventHUD?.hidden = true
+            
+            self.associatedEvent?.setParticipants({
+                
+            })
+        })
+
     }
     
     func seeAsistPeople(eventAtIndex: Int) {
-        //code
+        
+        self.associatedEvent = self.eventsStorage[eventAtIndex]
+        self.associatedFriends = []
+        
+        let provider = Provider()
+        
+        provider.getEventParticipants(self.associatedEvent!.getId(), success: {
+            friends in
+            
+            for i in friends{
+                self.associatedFriends.append(i)
+            }
+            
+            self.performSegueWithIdentifier("seeAsistPeopleSegue", sender: self)
+            
+        })
+
+        
     }
     
     func seeMore(eventAtIndex: Int) {
@@ -133,6 +203,14 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
                 destination.associatedEvent = self.associatedEvent
                 
             }
+        }else if(segue.identifier == "seeAsistPeopleSegue"){
+            
+            if let destination = segue.destinationViewController as? EVParticipantsViewController{
+                
+                destination.participants = self.associatedFriends
+                
+            }
+            
         }
     }
     
@@ -141,6 +219,7 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
     @IBAction func logout(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
     
 
 }
