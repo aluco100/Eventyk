@@ -51,8 +51,22 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
             
             self.eventsStorage = events
             
-            self.likehoodEventTableView.reloadData()
+            //Load  the user
             
+            let realm = try! Realm()
+            
+            let users = realm.objects(User)
+            
+            for i in users{
+                
+                if(i.Logged){
+                    self.relatedUser = i
+                    break
+                }
+                
+            }
+            self.likehoodEventTableView.reloadData()
+            print(self.relatedUser)
             
             }, failure: {
                 
@@ -60,23 +74,7 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
                 
         })
         
-        //Load  the user
         
-        let realm = try! Realm()
-        
-        let users = realm.objects(User)
-        
-        for i in users{
-            
-            if(i.Logged){
-                self.relatedUser = i
-                self.likehoodEventTableView.reloadData()
-                break
-            }
-            
-        }
-        
-        print(self.relatedUser)
         
         //HUD Settings
         
@@ -105,18 +103,19 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("likehoodEventIdentifier", forIndexPath: indexPath) as? EVHomeTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("likehoodEventIdentifier", forIndexPath: indexPath) as! EVHomeTableViewCell
         
+        //TODO: cambio de url + hacer que no se laguee el table view
         //event Image
-        let baseUrl = "http://www.eventyk.com/events-media/"
-        let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[indexPath.row].imageNamed)")
-        let data = NSData(contentsOfURL: url!)
+        //        let baseUrl = "http://www.eventyk.com/events-media/"
+        //        let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[indexPath.row].imageNamed)")
+        //        let data = NSData(contentsOfURL: url!)
         //        cell.imageEvent.image = UIImage(data: data!)
         //        cell.imageEvent.contentMode = .ScaleAspectFit
         
         //Title
         
-        cell!.titleEvent.text = self.eventsStorage[indexPath.row].Name
+        cell.titleEvent.text = self.eventsStorage[indexPath.row].Name
         
         //Date
         
@@ -124,24 +123,29 @@ class EVLikehoodEventViewController: UIViewController,UITableViewDelegate,UITabl
         formatter.locale = NSLocale.systemLocale()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        cell!.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
+        cell.dateEvent.text = formatter.stringFromDate(self.eventsStorage[indexPath.row].Date)
         
         //index
         
-        cell!.index = indexPath.row
+        cell.index = indexPath.row
         
-        cell!.delegate = self
+        cell.delegate = self
         
         //Button
         
+        print(self.eventsStorage[indexPath.row].getParticipants())
+        
         for i in self.eventsStorage[indexPath.row].getParticipants(){
+            print(i)
             if(i.getId() == self.relatedUser!.getId()){
-                cell!.asistButton.enabled = false
+                cell.asistButton.enabled = false
+                break
+            }else{
+                cell.asistButton.enabled = true
             }
         }
         
-        return cell!
-
+        return cell
     }
     
     //MARK: - Custom Table View Cell Delegate

@@ -194,11 +194,12 @@ class Provider {
                         
                         //Por ahora no necesita participantes, el controlador se encarga
                         event.setParticipants({
-                            eventList.append(event)
                         })
+                        eventList.append(event)
                     }
                 }
             }
+            
             success(eventList)
         })
     }
@@ -313,7 +314,6 @@ class Provider {
         
         Alamofire.request(.GET, "\(self.BaseURL)getEventsFromLikehood.php", parameters: params).responseJSON(completionHandler: {
             response in
-            
             if let eventArray = response.result.value as? NSArray{
                 
                 
@@ -333,18 +333,8 @@ class Provider {
                             let likeHood = prefs.first!
                             
                             let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
-                                                        
-                            //Por ahora no necesita participantes, el controlador se encarga
-                            event.setParticipants({
-                                try! self.realm.write({
-                                    self.realm.add(event, update: true)
-                                })
-                                
-                            })
+                            
                             eventList.append(event)
-
-                        
-                    
                         }
                     
 
@@ -353,10 +343,19 @@ class Provider {
                 }
             }
             
-            if(eventList.count > 0){
-                success(eventList)
-            }else{
-                failure()
+            //Por ahora no necesita participantes, el controlador se encarga
+            
+            for i in eventList{
+                i.setParticipants({
+                    print("Participants actualiced")
+                    if(eventList.count > 0){
+                        success(eventList)
+                    }else{
+                        failure()
+                    }
+                    
+                })
+
             }
             
         })

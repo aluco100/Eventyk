@@ -66,15 +66,14 @@ public class Event: Object{
         let provider = Provider()
         provider.getEventParticipants(self.getId(), success: {
             names in
-            
-            print(names)
-            
+            print("names: \(names)")
             let realm = try! Realm()
             
             
             try! realm.write({
                 self.Participants = names
                 realm.add(self, update: true)
+                print("Actual event: \(self)")
                 success()
             
             })
