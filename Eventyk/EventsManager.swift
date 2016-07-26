@@ -25,13 +25,13 @@ public class eventManager {
         
         let prefs = realm.objects(Preference)
         
-        if(prefs.count < 0){
+        
+        if(prefs.count <= 0){
             
             let provider = Provider()
             
             provider.getPreferences({
                 prefs in
-                
                 success()
                 
             })
@@ -46,7 +46,22 @@ public class eventManager {
         let realm = try! Realm()
         self.eventsStorage = []
         
-        getPrefs({
+        //verificar si se tiene seteado el perfil
+        
+        let preferences = realm.objects(Preference)
+        
+        var chosens: [Preference] = []
+        
+        for i in preferences{
+            
+            if i.Chosen{
+                chosens.append(i)
+            }
+            
+        }
+        
+        //obtener eventos
+        self.getPrefs({
             let events = realm.objects(Event)
             let provider = Provider()
             
@@ -56,7 +71,9 @@ public class eventManager {
                 print("Events:  \(events)")
                 for i in events{
                     //append events
-                    if(i.Likehood!.Chosen){
+                    if(i.Likehood!.Chosen && chosens.count > 0){
+                        self.eventsStorage.append(i)
+                    }else{
                         self.eventsStorage.append(i)
                     }
                 }
@@ -69,7 +86,9 @@ public class eventManager {
                     print("Events: \(events)")
                     
                     for i in events{
-                        if(i.Likehood!.Chosen){
+                        if(i.Likehood!.Chosen && chosens.count>0){
+                            self.eventsStorage.append(i)
+                        }else{
                             self.eventsStorage.append(i)
                         }
                     }

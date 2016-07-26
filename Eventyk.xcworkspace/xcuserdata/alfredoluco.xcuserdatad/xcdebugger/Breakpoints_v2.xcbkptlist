@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventyk/Provider.swift"
-            timestampString = "490475320.314414"
+            timestampString = "491258956.386865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "getEvents(_:success:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,59 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventyk/Provider.swift"
-            timestampString = "490475320.314414"
+            timestampString = "491258956.386865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "getEvents(_:success:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventyk.Provider.(getEvents (Eventyk.Provider) -&gt; (Swift.Int, success : (Swift.Array&lt;Eventyk.Event&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "Eventyk"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alfredoluco/Documents/Eventyk/Eventyk/Eventyk/Provider.swift"
-                  timestampString = "479927119.11946"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "183"
-                  endingLineNumber = "183"
-                  offsetFromSymbolStart = "9104">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Eventyk.Provider.(getEvents (Eventyk.Provider) -&gt; (Swift.Int, success : (Swift.Array&lt;Eventyk.Event&gt;) -&gt; ()) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Eventyk"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alfredoluco/Documents/Eventyk/Eventyk/Eventyk/Provider.swift"
-                  timestampString = "479927119.119664"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "184"
-                  endingLineNumber = "184"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Eventyk/Provider.swift"
-            timestampString = "490479722.264844"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "getEventParticipants(_:success:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventyk/Provider.swift"
-            timestampString = "490479722.264844"
+            timestampString = "491258956.386865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "getUserDataFromFacebook(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Eventyk/Provider.swift"
-            timestampString = "490479722.264844"
+            timestampString = "491258956.386865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "getUserDataFromFacebook(_:completion:)"
             landmarkType = "5">
          </BreakpointContent>

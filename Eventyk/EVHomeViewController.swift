@@ -97,7 +97,6 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.homeEventsManager.getEvents({
             events in
-            
             self.eventsStorage = events
             self.homeHUD?.hidden = true
             self.eventTableView.reloadData()
@@ -121,9 +120,9 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
         
         //TODO: cambio de url + hacer que no se laguee el table view
         //event Image
-        let baseUrl = "http://www.eventyk.com/events-media/"
-        let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[indexPath.row].imageNamed)")
-        let data = NSData(contentsOfURL: url!)
+//        let baseUrl = "http://www.eventyk.com/events-media/"
+//        let url = NSURL(string: "\(baseUrl)\(self.eventsStorage[indexPath.row].imageNamed)")
+//        let data = NSData(contentsOfURL: url!)
 //        cell.imageEvent.image = UIImage(data: data!)
 //        cell.imageEvent.contentMode = .ScaleAspectFit
         
@@ -151,6 +150,8 @@ class EVHomeViewController: UIViewController, UITableViewDataSource, UITableView
             if(i.getId() == self.relatedUser!.getId()){
                 cell.asistButton.enabled = false
                 break
+            }else{
+                cell.asistButton.enabled = true
             }
         }
         

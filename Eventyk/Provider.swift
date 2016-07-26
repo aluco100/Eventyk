@@ -187,19 +187,15 @@ class Provider {
                         
                         let prefs = self.realm.objects(Preference).filter("Nombre = %@",pref)
                         
+                        
                         let likeHood = prefs.first!
                         
                         let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
                         
                         //Por ahora no necesita participantes, el controlador se encarga
                         event.setParticipants({
-                            try! self.realm.write({
-                                self.realm.add(event, update: true)
-                            })
-                            
+                            eventList.append(event)
                         })
-                        eventList.append(event)
-                        
                     }
                 }
             }
