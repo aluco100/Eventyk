@@ -6,7 +6,6 @@
 //  Copyright © 2016 Innovarco. All rights reserved.
 //
 
-//TODO: GET USER DATA CON FACEBOOK
 
 import Foundation
 import Alamofire
@@ -115,7 +114,7 @@ class Provider {
                             
                             if let city = data["Ciudad"] as? String{
                                 
-                                userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city)
+                                userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city,fbFlag: false)
                                 userData.Logged = true
                                 //TODO: set preferences
                                 userData.setUserPreferences({
@@ -192,15 +191,18 @@ class Provider {
                         
                         let event = Event(identificator: idEvent, name: name, date: dateFormatter.dateFromString("\(date) \(hour)")!, descrip: descrip, shortDescrip: shortDescrip, place: place, zone: zone, type: type, isDestacable: flagDestacable, company: company, link: link, likehood: likeHood, image: image)
                         
-                        //Por ahora no necesita participantes, el controlador se encarga
-                        event.setParticipants({
-                        })
+                        
                         eventList.append(event)
                     }
                 }
             }
-            
-            success(eventList)
+            for i in eventList{
+                i.setParticipants({
+                    if(i == eventList.last){
+                        success(eventList)
+                    }
+                })
+            }
         })
     }
     
@@ -282,7 +284,7 @@ class Provider {
                     let id = dict["idUsuario"] as! String
                     let name = dict["Nombre"] as! String
                     let email = dict["email"] as! String
-                    let user = User(identificator: id, email: email, pass: "", name: name, birthdate: NSDate(), friendlist: [], gustos: [], city: "")
+                    let user = User(identificator: id, email: email, pass: "", name: name, birthdate: NSDate(), friendlist: [], gustos: [], city: "",fbFlag: true)
                     user.Logged = true
                     try! self.realm.write({
                         self.realm.add(user, update: true)

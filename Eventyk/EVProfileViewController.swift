@@ -19,6 +19,7 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
     @IBOutlet var profileEmail: UITextField!
     @IBOutlet var profileBirthday: UITextField!
     @IBOutlet var likeHoodTableView: UITableView!
+    @IBOutlet var saveProfileButton: UIButton!
     
     //MARK: - Global Variables
     
@@ -73,6 +74,11 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         }
         
         print("logged: \(self.user)")
+        if(self.user!.FBLogged){
+            self.saveProfileButton.enabled = false
+        }else{
+            self.saveProfileButton.enabled = true
+        }
         
         //Username textfield settings
         self.profileUserName.placeholder = user!.Name
@@ -207,8 +213,11 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
                 
                 self.user?.Name = userProfile!
                 self.user?.Mail = mailProfile!
-                //TODO: Ver tema del birthdate
                 
+                let formatter = NSDateFormatter()
+                formatter.locale = NSLocale.systemLocale()
+                formatter.dateFormat = "yyyy-MM-dd"
+                self.user?.setUserBirthdate(formatter.dateFromString(birthdayProfile!)!)
                 realm.add(self.user!, update: true)
                 
                 self.profileHUD?.hidden = true

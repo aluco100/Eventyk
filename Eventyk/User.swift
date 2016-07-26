@@ -19,8 +19,9 @@ public class User: Object {
     private var Gustos: [Preference] = []
     public dynamic var City: String = ""
     public dynamic var Logged: Bool = false
+    public dynamic var FBLogged: Bool = false
     
-    convenience init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [Friend],gustos: [Preference], city: String){
+    convenience init(identificator: String,email: String, pass: String, name: String, birthdate: NSDate, friendlist: [Friend],gustos: [Preference], city: String,fbFlag: Bool){
         
         self.init()
         
@@ -33,6 +34,7 @@ public class User: Object {
         self.Friends = friendlist
         self.Gustos = gustos
         self.City = city
+        self.FBLogged = fbFlag
         
     }
     
@@ -44,6 +46,10 @@ public class User: Object {
     
     public func getBirthdate()->NSDate{
         return self.Birthdate
+    }
+    
+    public func setUserBirthdate(date:NSDate){
+        self.Birthdate = date
     }
     
     public func setUserFriends(){

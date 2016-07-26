@@ -142,7 +142,7 @@ class EVLikehoodViewController: UIViewController,UICollectionViewDelegate,UIColl
     //MARK: - IBActions
     
     @IBAction func logout(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

@@ -1005,6 +1005,7 @@
                         <outlet property="profileImage" destination="iDW-GA-YcN" id="Eck-ee-GL9"/>
                         <outlet property="profileUserName" destination="vkK-S8-rFr" id="6e8-jw-XzJ"/>
                         <outlet property="profileView" destination="yOY-pG-0VO" id="dwG-O6-kva"/>
+                        <outlet property="saveProfileButton" destination="dVY-IH-TAx" id="2oX-ei-LB0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbv-9L-vrP" userLabel="First Responder" sceneMemberID="firstResponder"/>
