@@ -18,6 +18,9 @@
 		0C4CB2AC1D3872DD003F686B /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C4CB2AB1D3872DD003F686B /* like.png */; };
 		0C4CB2B01D387AEA003F686B /* EVLikehoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */; };
 		0C4CB2B21D387BB9003F686B /* EVLikehoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */; };
+		0C533F3F1D4825240042E61C /* Icon-App-60x60@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C533F3C1D4825240042E61C /* Icon-App-60x60@1x.png */; };
+		0C533F401D4825240042E61C /* Icon-App-60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C533F3D1D4825240042E61C /* Icon-App-60x60@2x.png */; };
+		0C533F411D4825240042E61C /* Icon-App-60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C533F3E1D4825240042E61C /* Icon-App-60x60@3x.png */; };
 		0C6C3C1D1C8F483800B9D934 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */; };
 		0C6C3C1F1C8F483800B9D934 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6C3C1E1C8F483800B9D934 /* ViewController.swift */; };
 		0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C6C3C201C8F483800B9D934 /* Main.storyboard */; };
@@ -90,6 +93,9 @@
 		0C4CB2AB1D3872DD003F686B /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = like.png; path = Assets.xcassets/like.png; sourceTree = "<group>"; };
 		0C4CB2AF1D387AEA003F686B /* EVLikehoodCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C4CB2B11D387BB9003F686B /* EVLikehoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EVLikehoodViewController.swift; sourceTree = "<group>"; };
+		0C533F3C1D4825240042E61C /* Icon-App-60x60@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-App-60x60@1x.png"; path = "Assets.xcassets/Icon-App-60x60@1x.png"; sourceTree = "<group>"; };
+		0C533F3D1D4825240042E61C /* Icon-App-60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-App-60x60@2x.png"; path = "Assets.xcassets/Icon-App-60x60@2x.png"; sourceTree = "<group>"; };
+		0C533F3E1D4825240042E61C /* Icon-App-60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-App-60x60@3x.png"; path = "Assets.xcassets/Icon-App-60x60@3x.png"; sourceTree = "<group>"; };
 		0C6C3C191C8F483800B9D934 /* Eventyk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventyk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C6C3C1C1C8F483800B9D934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C6C3C1E1C8F483800B9D934 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +257,9 @@
 		0CF2BA941D3727A300F202B7 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				0C533F3C1D4825240042E61C /* Icon-App-60x60@1x.png */,
+				0C533F3D1D4825240042E61C /* Icon-App-60x60@2x.png */,
+				0C533F3E1D4825240042E61C /* Icon-App-60x60@3x.png */,
 				0CCAF2381D3BE0F20083438C /* users.png */,
 				0C9A28161D3AA67F002BCDD3 /* ArteyCultura.png */,
 				0C9A28171D3AA67F002BCDD3 /* Cine.png */,
@@ -430,6 +439,7 @@
 				0CF2BA961D3727C900F202B7 /* login_wall.jpg in Resources */,
 				0C9A282C1D3AA67F002BCDD3 /* Social.png in Resources */,
 				0C9A28221D3AA67F002BCDD3 /* ArteyCultura.png in Resources */,
+				0C533F401D4825240042E61C /* Icon-App-60x60@2x.png in Resources */,
 				0CCAF2391D3BE0F20083438C /* users.png in Resources */,
 				0C9A28241D3AA67F002BCDD3 /* Deportes.png in Resources */,
 				0C4CB2AA1D383577003F686B /* internet.png in Resources */,
@@ -438,6 +448,7 @@
 				0C9A28261D3AA67F002BCDD3 /* Expo.png in Resources */,
 				0C9A282A1D3AA67F002BCDD3 /* Ryder.png in Resources */,
 				0C0ADADD1C8F52B7004D8901 /* lgo-eventy1.png in Resources */,
+				0C533F3F1D4825240042E61C /* Icon-App-60x60@1x.png in Resources */,
 				0C0ADAE31C8F56D3004D8901 /* rsz_facebook.png in Resources */,
 				0C933A531D3814FF008489FA /* calendar.png in Resources */,
 				0C4CB2A91D383577003F686B /* delete-user-outlined-interface-symbol.png in Resources */,
@@ -445,6 +456,7 @@
 				0C9A28231D3AA67F002BCDD3 /* Cine.png in Resources */,
 				0C6C3C241C8F483800B9D934 /* Assets.xcassets in Resources */,
 				0C9A28271D3AA67F002BCDD3 /* Festival.png in Resources */,
+				0C533F411D4825240042E61C /* Icon-App-60x60@3x.png in Resources */,
 				0C6C3C221C8F483800B9D934 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
