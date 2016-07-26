@@ -72,6 +72,8 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
             
         }
         
+        print("logged: \(self.user)")
+        
         //Username textfield settings
         self.profileUserName.placeholder = user!.Name
         
@@ -80,8 +82,10 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         self.profileEmail.keyboardType = .EmailAddress
         
         //Birthday TextField Settings
-        //TODO: Investigar porque no puedo poner el birthdate
-//        self.profileBirthday.placeholder = user!.Birthdate
+        let birthdateFormatter = NSDateFormatter()
+        birthdateFormatter.locale = NSLocale.systemLocale()
+        birthdateFormatter.dateFormat = "yyyy-MM-dd"
+        self.profileBirthday.placeholder = birthdateFormatter.stringFromDate(self.user!.getBirthdate())
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.Default

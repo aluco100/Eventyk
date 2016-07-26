@@ -6,7 +6,6 @@
 //  Copyright © 2016 Innovarco. All rights reserved.
 //
 
-//TODO: Collection types in Realm
 
 import Foundation
 import RealmSwift
@@ -41,6 +40,10 @@ public class User: Object {
     
     public func getId()->String{
         return self.UserId
+    }
+    
+    public func getBirthdate()->NSDate{
+        return self.Birthdate
     }
     
     public func setUserFriends(){
