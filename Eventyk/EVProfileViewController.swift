@@ -30,6 +30,8 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
     var user: User? = nil
     
     var profileHUD: MBProgressHUD? = nil
+    
+    var EVManager: eventManager = eventManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,23 +43,8 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.barTintColor = UIColor.orangeColor()
         self.navigationController?.navigationBar.barStyle = .Black
         
-        //Load Preferences
-        
         let realm = try! Realm()
-        
-        let preferences = realm.objects(Preference)
-        
-        for i in preferences{
-            
-            self.likehoods.append(i)
-            
-        }
-        
-        //Table View Settings
-        
-        self.likeHoodTableView.delegate = self
-        self.likeHoodTableView.dataSource = self
-        self.likeHoodTableView.reloadData()
+
         
         //Load User Data
         let users = realm.objects(User)
@@ -79,6 +66,26 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         }else{
             self.saveProfileButton.enabled = true
         }
+
+        
+        //Load Preferences
+        
+        let preferences = realm.objects(Preference)
+        
+        for i in preferences{
+            self.likehoods.append(i)
+        }
+        
+        self.EVManager.reloadUserPreferences(self.user!, success: {
+            self.likeHoodTableView.reloadData()
+        })
+                
+        
+        //Table View Settings
+        
+        self.likeHoodTableView.delegate = self
+        self.likeHoodTableView.dataSource = self
+        
         
         //Username textfield settings
         self.profileUserName.placeholder = user!.Name
@@ -166,14 +173,29 @@ class EVProfileViewController: UIViewController,UITableViewDelegate, UITableView
         
         let realm = try! Realm()
         
-        try! realm.write({
+        let provider = Provider()
+        
+        provider.updateLikehood(self.user!.getId(), idLikehood: self.likehoods[atIndex].Id, switchFlag: cellSwitch.on, success: {
+            //success
             
-            self.likehoods[atIndex].Chosen = cellSwitch.on
+            try! realm.write({
+                
+                self.likehoods[atIndex].Chosen = cellSwitch.on
+                
+                realm.add(self.likehoods[atIndex], update: true)
+                
+                self.profileHUD?.hidden = true
+            })
             
-            realm.add(self.likehoods[atIndex], update: true)
             
-            self.profileHUD?.hidden = true
+            }, failure: {
+                //failure
+                
+                print("FAILURE!")
+                self.profileHUD?.hidden = true
+                
         })
+        
         
         
     }

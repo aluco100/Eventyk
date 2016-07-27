@@ -102,4 +102,41 @@ public class eventManager {
         
     }
     
+    func reloadUserPreferences(relatedUser: User, success: ()->Void){
+        
+        let provider = Provider()
+        let realm = try! Realm()
+        let preferences = realm.objects(Preference)
+        
+        provider.getUserPreferences(relatedUser, success: {
+            prefs in
+            for i in preferences{
+                
+                for j in prefs{
+                    if(j.Id == i.Id){
+                        try!realm.write({
+                            i.Chosen = true
+                            realm.add(i, update: true)
+                            if(i == preferences.last){
+                                success()
+                            }
+                        })
+                        break
+                    }else{
+                        try!realm.write({
+                            i.Chosen = false
+                            realm.add(i, update: true)
+                            if(i == preferences.last){
+                                success()
+                            }
+                        })
+                        
+                    }
+                    
+                }
+            }
+        })
+
+    }
+    
 }

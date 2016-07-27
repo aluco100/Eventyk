@@ -149,6 +149,7 @@ class Provider {
         
         Alamofire.request(.GET, "\(BaseURL)getUserPreferences.php", parameters: params).responseJSON(completionHandler: {
             response in
+            print(response.result)
             let data = response.result.value as! NSArray
             for object in data{
                 let dict = object as! NSDictionary
@@ -382,4 +383,23 @@ class Provider {
         
     }
     
+    //MARK: - updateProfilePreferences
+    func updateLikehood(idUser: String, idLikehood: String, switchFlag: Bool, success: ()->Void, failure: ()->Void){
+        
+        let params = ["idUser": idUser,
+                      "idLikehood": idLikehood,
+                      "flagToInsert": switchFlag]
+        
+        Alamofire.request(.POST, "\(self.BaseURL)insertLikehood.php", parameters: params as? [String : AnyObject]).responseJSON(completionHandler: {
+            response in
+            
+            if(response.result.value != nil){
+                success()
+            }else{
+                failure()
+            }
+            
+        })
+        
+    }
 }
