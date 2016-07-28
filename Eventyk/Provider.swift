@@ -116,7 +116,6 @@ class Provider {
                                 
                                 userData = User(identificator: identificator, email: mail, pass: pass, name: name, birthdate: birthdate, friendlist: [], gustos: [], city: city,fbFlag: false)
                                 userData.Logged = true
-                                //TODO: set preferences
                                 userData.setUserPreferences({
                                     
                                     try! self.realm.write({

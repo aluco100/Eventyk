@@ -37,9 +37,7 @@ class EVLikehoodViewController: UIViewController,UICollectionViewDelegate,UIColl
             self.likehood.append(i)
             
         }
-        
-        print(self.likehood)
-        
+                
         //CollectionView Setting
         
         self.likehoodCollectionView.delegate = self
@@ -141,8 +139,8 @@ class EVLikehoodViewController: UIViewController,UICollectionViewDelegate,UIColl
     
     //MARK: - IBActions
     
-    @IBAction func logout(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func goToMap(sender: AnyObject) {
+        self.performSegueWithIdentifier("mapSegue", sender: self)
     }
     
     

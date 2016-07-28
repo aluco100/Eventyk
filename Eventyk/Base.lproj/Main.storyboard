@@ -450,7 +450,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyF-fK-hhJ">
                                                     <rect key="frame" x="8" y="111" width="104" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-PC-DCn">
@@ -500,15 +500,15 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventyk" id="BnU-ZL-ewR">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Oc3-S4-2Vr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LVc-b4-uyD">
-                                <rect key="frame" x="548" y="6" width="32" height="32"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="JoI-jk-K4b">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9e1-2O-aNY">
+                                <rect key="frame" x="494" y="6" width="86" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="logout"/>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <action selector="goToMap:" destination="BFA-86-9xK" eventType="touchUpInside" id="WOX-DR-pJm"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="logout:" destination="BFA-86-9xK" id="7Mx-H4-5ox"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -516,11 +516,44 @@
                         <outlet property="likehoodCollectionView" destination="p7m-lL-GtS" id="rj4-LV-U6X"/>
                         <outlet property="seeMoreButton" destination="t1o-on-xfr" id="a20-oM-6eR"/>
                         <segue destination="DEA-K4-neH" kind="show" identifier="likehoodEventSegue" id="OlJ-L4-KPt"/>
+                        <segue destination="kha-wS-e5w" kind="show" identifier="mapSegue" id="b5a-DR-hX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9J-Jd-9WH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4337" y="266"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="toB-xy-H48">
+            <objects>
+                <viewController id="kha-wS-e5w" customClass="EVMapViewController" customModule="Eventyk" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pbh-Mh-6yu"/>
+                        <viewControllerLayoutGuide type="bottom" id="vRV-G8-ggc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NP4-qg-wNl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ip6-a4-Vy8">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ip6-a4-Vy8" firstAttribute="leading" secondItem="NP4-qg-wNl" secondAttribute="leading" id="4ka-qV-za9"/>
+                            <constraint firstItem="Ip6-a4-Vy8" firstAttribute="top" secondItem="NP4-qg-wNl" secondAttribute="top" id="jNv-ar-OkJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ip6-a4-Vy8" secondAttribute="bottom" id="oll-mi-3xw"/>
+                            <constraint firstAttribute="trailing" secondItem="Ip6-a4-Vy8" secondAttribute="trailing" id="vss-Wb-Vbl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="Ip6-a4-Vy8" id="F6F-oH-axF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4G5-IH-nc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4337" y="1010"/>
         </scene>
         <!--Eventyk-->
         <scene sceneID="0fd-yv-4rK">
@@ -1078,6 +1111,7 @@
         <image name="like" width="32" height="32"/>
         <image name="login" width="1125" height="1339"/>
         <image name="logout" width="32" height="32"/>
+        <image name="map" width="64" height="64"/>
         <image name="register" width="1125" height="1646"/>
     </resources>
     <inferredMetricsTieBreakers>
